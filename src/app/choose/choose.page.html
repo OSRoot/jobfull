@@ -1,0 +1,119 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="color: #5075d5; font-size: x-large; font-weight: 900"
+      >Jobful</ion-title
+    >
+    <ion-buttons slot="end" style="color: aqua; border: 1px solid #5075d5">
+      <ion-button (click)="go_back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-label>Go Back</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  <ion-card style="margin-top: 50px" class="main">
+    <div style="margin-top: 5%">
+      <h1
+        style="
+          color: #5075d5;
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 40px;
+        "
+      >
+        Join as a client or freelancer
+      </h1>
+
+      <ion-radio-group>
+        <ion-row>
+          <ion-col size="6" size-lg="4" offset-lg="2">
+            <ion-card style="color: #bebebe">
+              <br />
+              <ion-card-title> As Freelancer </ion-card-title>
+              <ion-card-header>
+                <ion-radio value="freelancer" (click)="get_role($event)"
+                  >Select</ion-radio
+                >
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="6" size-lg="4">
+            <ion-card>
+              <br />
+              <ion-card-title> As Client </ion-card-title>
+              <ion-card-header>
+                <ion-radio value="client" (click)="get_role($event)"
+                  >Select</ion-radio
+                >
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+
+      <ion-row>
+        <ion-col size="6" size-lg="4" offset-lg="2">
+          <ion-button
+            color="success"
+            [disabled]="is_disabled_freelancer"
+            (click)="join_as_freelancer()"
+            >Join as Freelancer</ion-button
+          >
+        </ion-col>
+
+        <ion-col size="6" size-lg="4">
+          <ion-button
+            [disabled]="is_disabled_client"
+            (click)="join_as_client()"
+            color="warning"
+            >Join as Client</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+  <div class="ion-fixed" ion-fixed></div>
+
+  <div
+    class="ion-text-center"
+    style="
+      background: #131524;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    "
+  >
+    <h3 style="color: #5075d5">Copyrights @ Ahmed Ala 2023</h3>
+    <div class="social-icon">
+      <ion-buttons>
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-facebook"
+          ></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-twitter"
+          ></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-linkedin"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+</ion-content>

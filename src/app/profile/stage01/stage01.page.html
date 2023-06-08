@@ -1,0 +1,370 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: #5075d5; font-size: x-large; font-weight: 900"
+      >Jobful</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-text-center ion-align-items-center">
+  <section class="main">
+    <ion-grid>
+      <h1
+        style="
+          color: #5075d5;
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        "
+      >
+        Complete Your Personal Information
+      </h1>
+      <form
+        [formGroup]="form_data"
+        autocomplete="off"
+        #regForm="ngForm"
+        (ngSubmit)="on_submit(regForm)"
+      >
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="2.5"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0; margin-top: 5px">
+              <ion-label style="padding: 1%" position="stacked"
+                >Title</ion-label
+              >
+              <ion-input
+                [(ngModel)]="Title"
+                formControlName="Title"
+                [clearInput]="true"
+                style="padding: 1%"
+                placeholder="Ex. Ahmed"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12" size-lg="4" style="border: 2px solid #5075d5">
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">Bio</ion-label>
+              <ion-textarea
+                [(ngModel)]="Bio"
+                formControlName="Bio"
+                rows="1"
+                placeholder="Ex. I am tall..."
+              ></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="6.5"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">Overview</ion-label>
+              <ion-textarea
+                [(ngModel)]="Overview"
+                formControlName="Overview"
+                rows="2"
+                placeholder="Ex. I work as ..."
+              ></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="3.3"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0; margin-top: 5px">
+              <ion-label position="stacked">Country</ion-label>
+              <ion-input
+                [(ngModel)]="Country"
+                formControlName="Country"
+                placeholder="Ex. Egypt"
+                [clearInput]="true"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col
+            size="12"
+            size-lg="3.2"
+            offset-lg=""
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">City</ion-label>
+              <ion-input
+                [(ngModel)]="City"
+                formControlName="City"
+                rows="1"
+                placeholder="Ex. Alex"
+                [clearInput]="true"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="3.3"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0; margin-top: 5px">
+              <ion-label position="stacked">Street Address</ion-label>
+              <ion-input
+                [(ngModel)]="Street"
+                formControlName="Street"
+                placeholder="Ex. Orabi St.77"
+                [clearInput]="true"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col
+            size="12"
+            size-lg="3.2"
+            offset-lg=""
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">Phone Number</ion-label>
+              <ion-input
+                [(ngModel)]="PhoneNumber"
+                formControlName="PhoneNumber"
+                rows="1"
+                placeholder="Ex. 01..."
+                [clearInput]="true"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="success">
+            <a
+              href="stage01#main2"
+              style="text-decoration: none; font-size: 16px; font-weight: 600"
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-around;
+                "
+              >
+                <ion-label>Continue</ion-label>
+                <ion-icon
+                  style="
+                    font-size: 20px;
+                    padding-left: 5px;
+                    padding-bottom: 3px;
+                    font-weight: 600;
+                  "
+                  slot="end"
+                  name="chevron-forward-circle-outline"
+                ></ion-icon>
+              </div>
+            </a>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+  <section class="main" id="main2">
+    <ion-grid>
+      <h1
+        style="
+          color: #5075d5;
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        "
+      >
+        Finish Your Profile Information
+      </h1>
+      <form
+        [formGroup]="form_data"
+        autocomplete="off"
+        #regForm="ngForm"
+        (ngSubmit)="on_submit(regForm)"
+      >
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="3.3"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0; margin-top: 5px">
+              <ion-label position="stacked">Hourly Rate (USD)</ion-label>
+              <ion-input
+                [(ngModel)]="HourlyRate"
+                formControlName="HourlyRate"
+                placeholder="Ex. 7"
+                type="number"
+                [clearInput]="true"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col
+            size="12"
+            size-lg="3.2"
+            offset-lg=""
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">Rating</ion-label>
+              <ion-input
+                [(ngModel)]="Rating"
+                formControlName="Rating"
+                [clearInput]="true"
+                rows="1"
+                placeholder="Ex. 4.7"
+                type="number"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="3.3"
+            offset-lg="3"
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0; margin-top: 5px">
+              <ion-label position="stacked">Upload CV</ion-label>
+              <ion-input
+                (change)="ion_change_cv($event)"
+                type="file"
+                [(ngModel)]="Cv"
+                formControlName="Cv"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col
+            size="12"
+            size-lg="3.2"
+            offset-lg=""
+            style="border: 2px solid #5075d5"
+          >
+            <ion-item style="--background: #f0f0f0">
+              <ion-label position="stacked">Upload Profile Picture</ion-label>
+              <ion-input
+                (change)="ion_change_photo($event)"
+                type="file"
+                [(ngModel)]="Photo"
+                formControlName="Photo"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+
+      <ion-row>
+        <ion-col
+          size="12"
+          size-lg="6"
+          offset-lg="3.25"
+          style="width: 100%; margin-top: 20px"
+        >
+          <ion-item
+            lines="none"
+            style="--background: transparent; margin-top: 5px"
+            mode="ios"
+          >
+            <ion-checkbox
+              labelPlacement="end"
+              justify="start"
+              style="color: #f0f0f0"
+              >I Checked My Information and it's All Correct.</ion-checkbox
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col
+          size="12"
+          size-lg="3"
+          offset-lg="3.25"
+          style="width: 100%; margin-top: 20px"
+        >
+          <ion-button style="width: 100%; height: 100px" color="warning"
+            >Review Info</ion-button
+          >
+        </ion-col>
+
+        <ion-col size="12" size-lg="3" style="width: 100%; margin-top: 20px">
+          <ion-button
+            style="width: 100%; height: 100px"
+            color="success"
+            (click)="handle_data_form()"
+            routerLink="/home"
+            routerDirection="forward"
+            [disabled]="!form_data.valid"
+            >Submit My Profile</ion-button
+          >
+        </ion-col>
+      </ion-row>
+
+      <div class="ion-fixed" ion-fixed></div>
+
+      <div
+        class="ion-text-center"
+        style="
+          background: #131524;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        "
+      >
+        <h3 style="color: #5075d5">Copyrights @ Ahmed Ala 2023</h3>
+        <div class="social-icon">
+          <ion-buttons>
+            <ion-button>
+              <ion-icon
+                color="light"
+                style="font-size: x-large"
+                name="logo-facebook"
+              ></ion-icon>
+            </ion-button>
+
+            <ion-button>
+              <ion-icon
+                color="light"
+                style="font-size: x-large"
+                name="logo-twitter"
+              ></ion-icon>
+            </ion-button>
+
+            <ion-button>
+              <ion-icon
+                color="light"
+                style="font-size: x-large"
+                name="logo-linkedin"
+              ></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </div>
+    </ion-grid>
+  </section>
+</ion-content>

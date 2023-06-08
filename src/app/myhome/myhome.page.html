@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      style="color: #5075d5; font-size: x-large; font-weight: 900"
+      slot="start"
+      >Jobful</ion-title
+    >
+    <ion-searchbar slot="start" placeholder="Search..." color="light">
+    </ion-searchbar>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/messages">
+        <ion-icon
+          name="chatbox-outline"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5"
+          >Messages</ion-label
+        >
+      </ion-button>
+
+      <ion-button routerLink="/jobs">
+        <ion-icon
+          name="basket-outline"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5">Jobs</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button
+        style="
+          --background: transparent;
+          text-transform: none;
+          width: 100px;
+          height: 50px;
+        "
+        routerLink="/myprofile"
+      >
+        <ion-label style="font-size: 15px; color: #5075d5; padding-right: 5px"
+          >{{username}}</ion-label
+        >
+        <ion-icon
+          name="person"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-button
+        style="
+          --background: transparent;
+          text-transform: none;
+          width: 100px;
+          height: 50px;
+        "
+        (click)="logout()"
+      >
+        <ion-label style="font-size: normal; color: #5075d5; padding-right: 5px"
+          >Logout</ion-label
+        >
+        <ion-icon
+          name="exit-outline"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="myhome-content">
+    <div class="side-menu">
+      <ion-item
+        style="
+          border-radius: 7px;
+          box-shadow: 0 0 4px #ddd;
+          color: #5075d5;
+          --background: #131524;
+        "
+        lines="none"
+      >
+        <ion-avatar class="ion-margin">
+          <ion-img src="../../assets/home.png"></ion-img>
+        </ion-avatar>
+        <ion-label>{{username}}</ion-label>
+      </ion-item>
+
+      <div class="services">
+        <h2>Services</h2>
+        <ul>
+          <li>
+            <a href="#">Front end</a>
+          </li>
+          <li>
+            <a href="#">Back end</a>
+          </li>
+          <li>
+            <a href="#">Full stack</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="services">
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <a href="#">First Project</a>
+          </li>
+          <li>
+            <a href="#">Second Project</a>
+          </li>
+          <li>
+            <a href="#">Third Project</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-content" style="height: 100%; overflow: scroll">
+      <div class="top">
+        <h1>Welcome {{username}} !</h1>
+        <p>Explore work an your dashboard</p>
+      </div>
+
+      <div class="middle">
+        <div class="info">
+          <h3>Explore your shitty work</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Asperiores, magnam?
+          </p>
+        </div>
+        <div class="btns">
+          <ion-buttons style="align-items: center">
+            <ion-button
+              color="light"
+              fill="outline"
+              shape="round"
+              style="text-transform: none"
+            >
+              Explore More
+            </ion-button>
+
+            <ion-button
+              style="--background: #fff; text-transform: none"
+              shape="round"
+            >
+              More Shit
+            </ion-button>
+          </ion-buttons>
+        </div>
+
+        <div class="overlay"></div>
+      </div>
+
+      <div class="work-activity">
+        <div class="work">
+          <h2>My Works</h2>
+          <div>
+            <ion-card *ngFor="let work of work_list;">
+              <img src="{{work.image}}" alt="pic" />
+              <ion-card-title>{{work.title}}</ion-card-title>
+              <ion-card-content>{{work.desc}}</ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+
+        <div class="activity">
+          <h2>Recent Activities</h2>
+
+          <div
+            class="activit-item"
+            *ngFor="let activity of activity_list;"
+            style="--background: transparent; margin-bottom: 15px"
+          >
+            <ion-avatar>
+              <ion-img src="{{activity.image}}"></ion-img>
+            </ion-avatar>
+            <div>
+              <h3>{{activity.title}}</h3>
+              <p>{{activity.job}}</p>
+            </div>
+            <span>1 min ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

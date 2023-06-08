@@ -1,0 +1,44 @@
+
+
+
+ion-row{
+
+    ion-col{
+        text-align: center;
+        ion-button{
+            @media screen and (max-width:767px) {
+                width: 90%;    
+            }
+            width: 60%;
+            height: 60px;
+        }
+    }
+}
+
+[ion-fixed]{
+    
+    min-height: calc(100% - 550px);
+    
+  }
+ 
+.main{
+
+    @media screen and (max-width:767px) {
+        border-radius: 10%;
+    }
+    border: 3px solid #5075d5;
+
+    height: 70%;
+    background: #292b3a;
+    border-radius: 30px;
+     
+ion-card{
+    background: #fcffa4;
+    transition: 0.3s ease-in-out;
+
+}
+
+ion-card:hover{
+    transform: scale(1.1, 1.1);
+}
+}

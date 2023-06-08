@@ -1,0 +1,75 @@
+
+
+ion-content{
+    width: auto;
+  scroll-behavior: smooth;
+
+}
+ion-content.ion-align-items-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+
+// [ion-fixed]{
+    
+//     min-height: calc(100% - 600px);
+    
+// }
+
+.ion-text-center {
+    text-align: center !important;
+    margin-top: 40px;
+}
+.main{
+    width: 100%;
+    min-height: 85vh;
+   border: 1px solid aqua;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    
+
+
+    ion-item{
+        padding: 0.5%;
+    }
+    ion-col{
+        
+        border-radius: 5px;
+        padding: 0.5%;
+    }
+
+   
+
+}
+form{
+    ion-row{
+            padding: .5%;
+
+        ion-col{
+            padding: 1%;
+        }
+    }
+}
+ion-row{
+    ion-col{
+        ion-button{
+            @media screen and (max-width:767px) {
+                width: 50%;
+            }
+            // width: 10%
+        }
+    }
+}
+
+
+
+[ion-fixed]{
+    
+    min-height: calc(100% - 370px);
+    
+}

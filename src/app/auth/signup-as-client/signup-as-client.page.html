@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: #5075d5; font-size: x-large; font-weight: 900"
+      >Jobful</ion-title
+    >
+    <ion-buttons slot="end">
+      <ion-button
+        color="primary"
+        shape="round"
+        style="border: 1px solid #5075d5; border-radius: 5px"
+      >
+        <ion-label>Login</ion-label>
+        <ion-icon name="log-in-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button
+        style="color: aqua; border: 1px solid #5075d5"
+        routerLink="/choose"
+        routerDirection="back"
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-label>Go back</ion-label>
+      </ion-button>
+
+      <ion-button style="color: aqua; border: 1px solid #5075d5">
+        <ion-label>Home</ion-label>
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center ion-items-center">
+  <ion-fab
+  style="margin-right: 70px; margin-bottom: 50px"
+    slot="fixed"
+    horizontal="end"
+    vertical="bottom"
+  >
+    <ion-fab-button color="danger" id="present-alert" (click)="chat_inquiry()">
+    
+      <ion-label style="font-weight: bold">Chat</ion-label>
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h1
+    style="
+      color: #5075d5;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    "
+  >
+    Join As a Client
+  </h1>
+
+  <ion-row>
+    <ion-col size="12" size-lg="6" offset-lg="3">
+      <form [formGroup]="sign_up_form">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input
+            type="text"
+            placeholder="username"
+            [(ngModel)]="username"
+            formControlName="username"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input
+            type="text"
+            placeholder="firstname"
+            [(ngModel)]="fName"
+            formControlName="fName"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input
+            type="text"
+            placeholder="lastname"
+            [(ngModel)]="lName"
+            formControlName="lName"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Company Email</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Email Address"
+            [(ngModel)]="email"
+            formControlName="email"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            [(ngModel)]="password"
+            formControlName="password"
+          ></ion-input>
+          <ion-icon
+            slot="end"
+            [name]="showPassword ? 'eye-off' : 'eye'"
+            (click)="toggleShowPassword()"
+          ></ion-icon>
+        </ion-item>
+        <ion-row>
+          <ion-col
+            size="12"
+            size-lg="6"
+            offset-lg="3.25"
+            style="width: 100%; margin-top: 20px"
+          >
+            <ion-item
+              lines="none"
+              style="--background: transparent; margin-top: 5px"
+              mode="ios"
+            >
+              <ion-checkbox
+              
+                labelPlacement="end"
+                justify="start"
+                style="color: #f0f0f0"
+                >I Checked My Information and it's All Correct.</ion-checkbox
+              >
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+      
+      <ion-button
+        color="success"
+        style="width: 50%; height: 50px; margin-top: 20px"
+        [disabled]="!sign_up_form.valid"
+        >Join Now</ion-button
+      >
+    </ion-col>
+  </ion-row>
+
+  <div class="ion-fixed" ion-fixed></div>
+
+  <div
+    class="ion-text-center"
+    style="
+      background: #131524;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    "
+  >
+    <h3 style="color: #5075d5">Copyrights @ Ahmed Ala 2023</h3>
+    <div class="social-icon">
+      <ion-buttons>
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-facebook"
+          ></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-twitter"
+          ></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon
+            color="light"
+            style="font-size: x-large"
+            name="logo-linkedin"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+</ion-content>
