@@ -1,0 +1,26 @@
+.myhome-content{
+  display: flex;
+  padding: 10px;
+  background-color: #060d2a;
+  height: calc(100vh  - 150px);
+  border-radius: 10px;
+  gap: .5%;
+  .sidemenu{
+    width: 20%;
+    background: #eee;
+    box-shadow: 0 0 10px #b5b5b5;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .main-content{
+    display: flex;
+    background: #eee;
+    width: 79.5%;
+   border-radius: 10px;
+   box-shadow: 0 0 5px #b5b5b5;
+   padding: 10px;
+   align-items: center;
+   justify-content: center;
+
+  }
+}

@@ -1,0 +1,41 @@
+.main{
+    display: flex;
+    background-color: #eee;
+    height: calc(100vh - 90px);
+    border-radius: 15px;
+
+    .profile{
+        @media (max-width: 768px){
+        width: 100%;
+
+        }
+        border-radius: 15px;
+        width: 80%;
+        box-shadow: 0 0 15px #ddd;
+        .cover{
+            background-image: linear-gradient(to right, purple, orange);
+            width: 100%;
+            height: 200px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        height: 500px;
+        .profile-image{
+            padding-left:30px ;
+            
+            img{
+                border: 4px solid #eee;
+                position: absolute;
+                top: 150px;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+            }
+        }
+        .profile-info{
+            padding-top: 30px;
+            padding-left: 170px;
+
+        }
+    }
+}

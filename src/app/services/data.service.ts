@@ -57,6 +57,11 @@ export class DataService {
     return this.http.post(API + 'register', user_data).pipe(take(1))
   }
 
+  sign_up_client(client_data: any): Observable<any> {
+    this.storage.set('CLINET_SIGNED', [])
+    return this.http.post(API + 'register', client_data).pipe(take(1))
+  }
+
 
 
   // ###################################################
@@ -111,5 +116,14 @@ export class DataService {
       .set('Content-type', 'application/json')
 
     return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
+  }
+  send_client_form(freelancer_form: any) {
+    this.storage.set('Client_Data', []);
+
+    // let headers = new HttpHeaders()
+    //   .set('Authorization', `Bearer ${this.token}`)
+    //   .set('Content-type', 'application/json')
+
+    // return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form,).pipe(take(1))
   }
 }
