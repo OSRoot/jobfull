@@ -10,15 +10,15 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class Stage01Page implements OnInit {
 
-  Overview!: string;
-  Title!: string;
-  Bio!: string;
-  HourlyRate!: number;
-  Rating!: number;
-  Country!: string;
-  City!: string;
-  Street!: string;
-  PhoneNumber!: string;
+  Overview!: any;
+  Title!: any;
+  Bio!: any;
+  HourlyRate!: any;
+  Rating!: any;
+  Country!: any;
+  City!: any;
+  Street!: any;
+  PhoneNumber!: any;
   Cv!: FormData;
   Photo!: FormData;
   token = ''
@@ -97,10 +97,10 @@ export class Stage01Page implements OnInit {
 
     // Save Form data in the storage
     const full_form: object = {
-      Title: this.Title,
-      Overview: this.Overview,
-      Bio: this.Bio,
-      Country: this.Country,
+      Title: [this.Title],
+      Overview: [this.Overview],
+      Bio: [this.Bio],
+      Country: [this.Country],
       City: this.City,
       PhoneNumber: this.PhoneNumber,
       Street: this.Street,
