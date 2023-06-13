@@ -19,8 +19,9 @@ export class Stage01Page implements OnInit {
   City!: any;
   Street!: any;
   PhoneNumber!: any;
-  Cv!: FormData;
-  Photo!: FormData;
+  Cv!: File;
+  Photo!: File;
+
   token = ''
   form_data!: FormGroup;
 
@@ -53,20 +54,22 @@ export class Stage01Page implements OnInit {
     // this.handle_data_form()
   }
 
-  update_form() {
-    this.handle_data_form()
-  }
+  // update_form() {
+  //   this.handle_data_form()
+  // }
 
 
 
 
   ion_change_cv(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0]
-      const formData = new FormData();
-      formData.append('file', file)
-      this.Cv = formData;
-      console.log(this.Cv.get('file'));
+      this.Cv = event.target.files[0]
+      console.log(this.Cv.name);
+
+      // const formData = new FormData();
+      // formData.append('file', file)
+      // this.Cv = formData;
+      // console.log(this.Cv.get('file'));
 
     }
 
@@ -80,11 +83,13 @@ export class Stage01Page implements OnInit {
 
   ion_change_photo(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      const formData = new FormData();
-      formData.append('photo', file)
-      this.Photo = formData;
-      console.log(this.Photo.get('photo'));
+      this.Photo = event.target.files[0];
+      console.log(this.Photo);
+
+      // const formData = new FormData();
+      // formData.append('photo', file)
+      // this.Photo = formData;
+      // console.log(this.Photo.get('photo'));
 
     }
 
@@ -94,24 +99,35 @@ export class Stage01Page implements OnInit {
 
 
   handle_data_form() {
-
+    const formData = new FormData();
+    formData.append('title', this.Title);
+    formData.append('overview', this.Overview);
+    formData.append('bio', this.Bio);
+    formData.append('country', this.Country);
+    formData.append('city', this.City);
+    formData.append('street', this.Street);
+    formData.append('HourlyRate', this.HourlyRate);
+    formData.append('Rating', this.Rating);
+    formData.append('phoneNumber', this.PhoneNumber);
+    formData.append('Cv', this.Cv);
+    formData.append('Photo', this.Photo);
     // Save Form data in the storage
-    const full_form: object = {
-      Title: [this.Title],
-      Overview: [this.Overview],
-      Bio: [this.Bio],
-      Country: [this.Country],
-      City: this.City,
-      PhoneNumber: this.PhoneNumber,
-      Street: this.Street,
-      HourlyRate: this.HourlyRate,
-      Rating: this.Rating,
-      Cv: this.Cv,
-      Photo: this.Photo
-    }
+    // const full_form: object = {
+    //   Title: [this.Title],
+    //   Overview: [this.Overview],
+    //   Bio: [this.Bio],
+    //   Country: [this.Country],
+    //   City: this.City,
+    //   PhoneNumber: this.PhoneNumber,
+    //   Street: this.Street,
+    //   HourlyRate: this.HourlyRate,
+    //   Rating: this.Rating,
+    //   Cv: this.Cv,
+    //   Photo: this.Photo
+    // }
 
     // Init 
-    this.data_service.send_freelancer_form(full_form).subscribe(res => {
+    this.data_service.send_freelancer_form(formData).subscribe(res => {
       console.log(res)
 
     }, err => {
@@ -120,7 +136,7 @@ export class Stage01Page implements OnInit {
     })
     // Set new Data to the local storage;
 
-    localStorage.setItem('All_info', JSON.stringify(full_form))
+    // localStorage.setItem('All_info', JSON.stringify(full_form))
 
 
 

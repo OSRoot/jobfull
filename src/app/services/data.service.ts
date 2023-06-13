@@ -108,12 +108,13 @@ export class DataService {
 
   // ###################################################
   // Send stage01 FormData
-  send_freelancer_form(freelancer_form: any) {
+  send_freelancer_form(freelancer_form: FormData) {
     this.storage.set('Freelancer_Data', []);
 
     let headers = new HttpHeaders()
       .set('Authorization', `Bearer ${this.token}`)
-      .set('Content-type', 'application/json')
+    // .set('Content-Type', 'multipart/form-data; boundary=--14737809831466499882746641449')
+    // .set('Accept', 'Application/json')
 
     return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
   }
