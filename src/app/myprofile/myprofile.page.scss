@@ -1,41 +1,242 @@
-.main{
+// .profile{
+//  border-radius: 15px;
+//         width: 80%;
+//         box-shadow: 0 0 15px #eea;   
+// }
+.main {
     display: flex;
-    background-color: #eee;
+    flex-direction: column;
+    background-color: antiquewhite;
+    scroll-behavior: smooth;
+    overflow: scroll;
     height: calc(100vh - 90px);
-    border-radius: 15px;
+    border-radius: 5px;
+    align-items: center;
 
-    .profile{
-        @media (max-width: 768px){
-        width: 100%;
-
-        }
-        border-radius: 15px;
+    // justify-content: center;
+    .profile {
+        position: relative;
+        text-align: center;
         width: 80%;
-        box-shadow: 0 0 15px #ddd;
-        .cover{
+        // margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #eea;
+
+        .cover {
             background-image: linear-gradient(to right, purple, orange);
             width: 100%;
-            height: 200px;
+            height: 150px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
         }
-        height: 500px;
-        .profile-image{
-            padding-left:30px ;
-            
-            img{
+
+        .profile-image {
+
+            position: absolute;
+            top: 15%;
+            left: 45%;
+            // right: 50%;
+            width: 100px;
+
+            img {
                 border: 4px solid #eee;
-                position: absolute;
-                top: 150px;
-                width: 120px;
-                height: 120px;
+                // top: 150px;
+                width: 100%;
+                // height: 100px;
                 border-radius: 50%;
             }
         }
-        .profile-info{
-            padding-top: 30px;
-            padding-left: 170px;
 
+        h2 {
+            margin: 0;
+        }
+
+        ion-item {
+            width: 50%;
+            margin: auto;
+            padding-left: 110px;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    .aboutme {
+        text-align: center;
+        width: 80%;
+        // margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #eea;
+
+        // width: 100%;
+        .bio-overview {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .bio {
+                border-radius: 7px;
+                border-left: 1px solid gray;
+                border-right: 1px solid rgb(196, 196, 196);
+                ;
+
+                // box-shadow: 0 0 15px #eea;
+
+                h3 {
+                    color: brown;
+                }
+
+                p {
+                    color: gray
+                }
+
+                margin-right: 5px;
+            }
+
+            .overview {
+                margin-left: 5px;
+
+                border-radius: 7px;
+                border-left: 1px solid rgb(196, 196, 196);
+
+                border-right: 1px solid gray;
+                // box-shadow: 0 0 15px #eea;
+
+                h3 {
+                    color: brown;
+                }
+
+                p {
+                    color: gray
+                }
+            }
+        }
+    }
+
+    .education {
+        text-align: center;
+        width: 80%;
+        // margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #eea;
+
+        .school {
+            display: flex;
+            border: 2px solid #daa;
+            padding: 10px;
+            border-radius: 5px;
+            // transition: 3s ease-in-out;
+
+            // &:hover {
+            //     transform: scale(1.1, 1.1);
+            // }
+
+            .every-2 {
+                width: 100%;
+
+                ion-item {
+                    height: 50px;
+
+                    color: #774a4a;
+
+                    span {
+                        color: rgb(255, 151, 91);
+                    }
+                }
+            }
+        }
+    }
+
+    .experience {
+        width: 80%;
+        text-align: center;
+        // margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #eea;
+    }
+
+    .languages {
+        width: 80%;
+        text-align: center;
+        // margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #eea;
+
+        .every-2 {
+            width: 100%;
+            display: flex;
+
+
+            ion-item {
+                width: 100%;
+                height: 50px;
+
+                color: #774a4a;
+
+                span {
+                    color: rgb(255, 151, 91);
+                }
+            }
         }
     }
 }
+
+// .main{
+//     display: flex;
+
+//     background-color: #eee;
+//     height: calc(100vh - 90px);
+//     border-radius: 15px;
+
+//     .profile{
+//         @media (max-width: 768px){
+//         width: 100%;
+
+//         }
+//         border-radius: 15px;
+//         width: 80%;
+//         box-shadow: 0 0 15px #eea;
+//         .cover{
+//             background-image: linear-gradient(to right, purple, orange);
+//             width: 100%;
+//             height: 200px;
+//             border-top-left-radius: 15px;
+//             border-top-right-radius: 15px;
+//         }
+//         height: 500px;
+//         .profile-image{
+//             padding-left:30px ;
+
+//             img{
+//                 border: 4px solid #eee;
+//                 position: absolute;
+//                 top: 150px;
+//                 width: 120px;
+//                 height: 120px;
+//                 border-radius: 50%;
+//             }
+//         }
+//         .profile-info{
+//             padding-top: 30px;
+//             padding-left: 170px;
+//             .country{
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: left;
+//                 img{
+//                     margin-right: 10px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .skills{
+//     border-radius: 15px;
+//         margin-top: 200px;
+//         width: 70%;
+//         max-height: 150px;
+//         box-shadow: 0 0 15px #eea;
+// }

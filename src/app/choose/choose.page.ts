@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-choose',
@@ -15,11 +16,16 @@ export class ChoosePage implements OnInit {
 
   constructor(
     private router: Router,
-    private loader: LoadingController
-  ) { }
+    private loader: LoadingController,
+    private storage: Storage
+  ) {
+    this.take_me_home();
+
+  }
   // #####################################// #####################################
 
   ngOnInit() {
+    this.take_me_home();
   }
   // #####################################// #####################################
 
@@ -74,6 +80,24 @@ export class ChoosePage implements OnInit {
     await this.router.navigate(['/home'])
   }
   // #####################################// #####################################
+
+  // ###################################################
+  // If user already logged in
+  take_me_home() {
+    this.storage.get('USER_LOGGED').then(res => {
+      if (!res || res.length < 1) {
+        return
+      }
+      if (res.isAuthenticated) {
+        this.router.navigate(['/myhome'])
+      }
+
+      else {
+        return
+      }
+    })
+  }
+  // ###################################################
 
 
 }

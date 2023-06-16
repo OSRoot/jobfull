@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-signup-as-client',
@@ -25,12 +26,17 @@ export class SignupAsClientPage implements OnInit {
   constructor(
     private router: Router,
     private loader: LoadingController,
-    private alert_ctrl: AlertController
-  ) { }
+    private alert_ctrl: AlertController,
+    private storage: Storage
+  ) {
+    this.take_me_home();
+
+  }
 
   // ################# END ##################################
 
   ngOnInit() {
+    this.take_me_home();
     this.sign_up_form = new FormGroup({
       username: new FormControl('', Validators.required),
       fName: new FormControl('', Validators.required),
@@ -83,6 +89,25 @@ export class SignupAsClientPage implements OnInit {
 
   }
 
+
+
+  // ###################################################
+  // If user already logged in
+  take_me_home() {
+    this.storage.get('USER_LOGGED').then(res => {
+      if (!res || res.length < 1) {
+        return
+      }
+      if (res.isAuthenticated) {
+        this.router.navigate(['/myhome'])
+      }
+
+      else {
+        return
+      }
+    })
+  }
+  // ###################################################
   // ############## Alert Controller ######################
 
   async show_alert_email() {

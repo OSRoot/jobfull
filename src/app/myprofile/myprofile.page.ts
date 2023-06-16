@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-myprofile',
@@ -6,11 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./myprofile.page.scss'],
 })
 export class MyprofilePage implements OnInit {
-
+  username!: string;
+  country!: string;
+  city!: string;
+  skills = [];
   notifications = 0
-  constructor() { }
+  constructor(
+    private storage: Storage
+  ) {
+    this.storage.get('USER_LOGGED').then((res: any) => {
+      const username = res.username;
+      this.username = username
+    });
+    this.storage.get('FreeLancer').then((res: any) => {
+      this.country = res.country;
+    })
+  }
 
   ngOnInit() {
+
   }
+
 
 }

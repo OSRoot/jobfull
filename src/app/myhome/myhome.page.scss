@@ -47,6 +47,9 @@ ion-toolbar{
 
 
   .myhome-content{
+    @media (max-width:768px){
+      // width: 100vh;
+    }
     padding: 10px;
     background-color: #060d2a;
     display: flex;
@@ -54,6 +57,9 @@ ion-toolbar{
     border-radius: 10px;
     gap: .5%;
     .side-menu{
+      @media (max-width:768px){
+        display: none;
+      }
       width: 20%;
       background: #eee;
       box-shadow: 0 0 10px #b5b5b5;

@@ -36,7 +36,9 @@ export class LoginPage implements OnInit {
     this.login_form = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-    })
+    });
+    this.take_me_home()
+
   }
 
 
@@ -63,6 +65,12 @@ export class LoginPage implements OnInit {
       console.log(user);
 
 
+
+    }, err => {
+      const error = err;
+      if ((error.message as string).includes('Http failure response')) {
+        this.disconnected(error.message)
+      };// console.log(error.message);
 
     })
   }
@@ -126,4 +134,16 @@ export class LoginPage implements OnInit {
     await alert.present()
   }
 
+  async disconnected(error: string) {
+    let alert = await this.alert_ctrl.create({
+
+      mode: 'ios',
+      header: 'Network',
+      message: `${error}`,
+      buttons: [
+        { text: 'Ok', role: 'cancel' },
+      ]
+    });
+    await alert.present();
+  }
 }
