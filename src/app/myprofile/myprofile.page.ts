@@ -7,6 +7,8 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./myprofile.page.scss'],
 })
 export class MyprofilePage implements OnInit {
+  
+  Show_Profile_Editor:number=0;
   username!: string;
   country!: string;
   city!: string;

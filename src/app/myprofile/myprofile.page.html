@@ -5,105 +5,81 @@
     >
   </ion-toolbar>
 </ion-header>
-
+<!-- ION CONTENT START -->
 <ion-content class="ion-padding">
-  <div class="main">
-    <div></div>
-    <div class="profile">
-      <div class="cover"></div>
-      <div class="profile-image">
-        <img src="../../assets/home.png" alt="Error" />
+<!-- DEV MAIN -->
+  <div class="main-content">
+<!-- _________________________________________________ -->
+    <div class="profile-header">
+<!-- _________________________________________________ -->
+      <div class="propic">
+        <img src="../../assets/profile.png" alt="">
       </div>
-      <h2>Username</h2>
-      <ion-item lines="none" class="" style="--background: transparent">
-        <img src="../../assets/egypt.png" />
-        <h5 style="padding-left: 10px; margin: 0; color: gray">
-          Egypt, Mansura, Street 70
-        </h5>
-      </ion-item>
-    </div>
-    <div class="aboutme">
-      <h2 style="color: brown">About Me</h2>
-      <div class="bio-overview">
-        <div class="bio">
-          <h3>Bio</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-            ducimus autem commodi repudiandae officiis accusamus sapiente
-            provident modi neque esse.
-          </p>
+<!-- _________________________________________________ -->
+      <div class="user-info">
+<!-- _________________________________________________ -->
+        <div class="title">
+          <ion-item lines="none" class="name">
+            <h1 class="name">AHMED ALA EDDIN</h1>
+          </ion-item>
+          <ion-item lines="none">
+            <h2 class="university">University College of Engineering, Azhar, Cairo</h2>
+          </ion-item>
+          <ion-item lines="none">
+            <h2 class="show-email">email: Ahmed@gmail.com</h2>
+          </ion-item>
+      
         </div>
-        <div class="overview">
-          <h3>Overview</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-            ducimus autem commodi repudiandae officiis accusamus sapiente
-            provident modi neque esse.
-          </p>
-        </div>
-      </div>
-    </div>
+<!-- _________________________________________________ -->
+          <div class="social-links">
+<!-- _________________________________________________ -->
 
-    <div class="education">
-      <h3 style="color: brown">Education</h3>
-      <div class="school">
-        <!-- Create a loop here on the education array -->
-        <div class="every-2">
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label>School: <span>Al-Azhar</span></ion-label>
-          </ion-item>
+          <div class="list">
+            <ul>
+              <li><a href="">www.azhar.edu.eg</a></li>
+              <li><a href="">
+              <ion-icon name="logo-facebook"></ion-icon>
+              Facebook
+              </a></li>
+              <li><a href="">
+              <ion-icon name="logo-twitter"></ion-icon>
+                Twitter</a></li>
+            </ul>
 
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label>Degree: <span>Good</span></ion-label>
-          </ion-item>
-        </div>
-
-        <div class="every-2">
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label>Field of study: <span>Programming</span></ion-label>
-          </ion-item>
-
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label
-              >Description: <span>Lorem ipsum dolor sit amet </span></ion-label
-            >
-          </ion-item>
-        </div>
-
-        <div class="every-2">
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label>From Date: <span>04 / 06 / 2023</span></ion-label>
-          </ion-item>
-
-          <ion-item lines="" class="" style="--background: transparent">
-            <ion-label>To Date: <span>04 / 06 / 2023</span></ion-label>
-          </ion-item>
-        </div>
-      </div>
-    </div>
-
-    <div class="languages">
-      <h3 style="color: brown">Languages</h3>
-      <div style="border: 2px solid #eaa">
-        <div class="every-2">
-          <div class="every-2">
-            <ion-item lines="" class="" style="--background: transparent">
-              Language: <span> English</span>
-            </ion-item>
           </div>
-
-          <div class="every-2">
-            <ion-item lines="" class="" style="--background: transparent">
-              Level: <span> Native</span>
-            </ion-item>
+<!-- _________________________________________________ -->
+          <div class="list">
+            <ul>
+              <li><a href="">
+              <ion-icon name="logo-linkedin"></ion-icon>
+                LinkedIn</a></li>
+              <li><a href="">
+              <ion-icon name="logo-github"></ion-icon>
+                GitHub</a></li>
+              <li><a href="">
+              <ion-icon name="mail-outline"></ion-icon>
+                
+                Ahmed@gmail.com</a></li>
+            </ul>
           </div>
+<!-- _________________________________________________ -->
         </div>
+<!-- _________________________________________________ -->
+
       </div>
+      <div class="profile-btns">
+        <ion-button color="light" shape="round" (click)="Show_Profile_Editor=1">
+          <ion-label>Edit</ion-label>
+          <ion-icon name="create-outline" ></ion-icon>
+        </ion-button>
+
+      </div>  
+      
     </div>
 
-    <div class="experience">
-      <h3>Expreience</h3>
-      <div class="exp"></div>
-    </div>
+    <div class="education"></div>
+  
+<!-- ION CONTENT MAIN DEV -->
   </div>
+<!-- ION CONTENT ENDING -->
 </ion-content>
