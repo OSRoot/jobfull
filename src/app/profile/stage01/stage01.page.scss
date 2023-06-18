@@ -1,8 +1,12 @@
 
+ion-toolbar{
+  --background: #131524;
 
+}
 ion-content{
     width: auto;
   scroll-behavior: smooth;
+  --background: #131524;
 
 }
 ion-content.ion-align-items-center {
@@ -11,6 +15,7 @@ ion-content.ion-align-items-center {
   justify-content: center;
   align-items: center;
   scroll-behavior: smooth;
+  --background: #131524;
 }
 
 
@@ -68,8 +73,3 @@ ion-row{
 
 
 
-[ion-fixed]{
-    
-    min-height: calc(100% - 370px);
-    
-}

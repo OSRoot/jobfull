@@ -6,80 +6,300 @@
   </ion-toolbar>
 </ion-header>
 <!-- ION CONTENT START -->
-<ion-content class="ion-padding">
-<!-- DEV MAIN -->
+<ion-content class="ion-no-padding">
+  <!-- DEV MAIN -->
   <div class="main-content">
-<!-- _________________________________________________ -->
+    <!-- _________________________________________________ -->
     <div class="profile-header">
-<!-- _________________________________________________ -->
-      <div class="propic">
+     
+    <div class="image">
+      <div>
         <img src="../../assets/profile.png" alt="">
-      </div>
-<!-- _________________________________________________ -->
-      <div class="user-info">
-<!-- _________________________________________________ -->
-        <div class="title">
-          <ion-item lines="none" class="name">
-            <h1 class="name">AHMED ALA EDDIN</h1>
-          </ion-item>
-          <ion-item lines="none">
-            <h2 class="university">University College of Engineering, Azhar, Cairo</h2>
-          </ion-item>
-          <ion-item lines="none">
-            <h2 class="show-email">email: Ahmed@gmail.com</h2>
-          </ion-item>
-      
-        </div>
-<!-- _________________________________________________ -->
-          <div class="social-links">
-<!-- _________________________________________________ -->
-
-          <div class="list">
-            <ul>
-              <li><a href="">www.azhar.edu.eg</a></li>
-              <li><a href="">
-              <ion-icon name="logo-facebook"></ion-icon>
-              Facebook
-              </a></li>
-              <li><a href="">
-              <ion-icon name="logo-twitter"></ion-icon>
-                Twitter</a></li>
-            </ul>
-
-          </div>
-<!-- _________________________________________________ -->
-          <div class="list">
-            <ul>
-              <li><a href="">
-              <ion-icon name="logo-linkedin"></ion-icon>
-                LinkedIn</a></li>
-              <li><a href="">
-              <ion-icon name="logo-github"></ion-icon>
-                GitHub</a></li>
-              <li><a href="">
-              <ion-icon name="mail-outline"></ion-icon>
-                
-                Ahmed@gmail.com</a></li>
-            </ul>
-          </div>
-<!-- _________________________________________________ -->
-        </div>
-<!-- _________________________________________________ -->
 
       </div>
-      <div class="profile-btns">
-        <ion-button color="light" shape="round" (click)="Show_Profile_Editor=1">
-          <ion-label>Edit</ion-label>
-          <ion-icon name="create-outline" ></ion-icon>
-        </ion-button>
-
-      </div>  
-      
+    
+      <div class="info">
+        <h1>Ahmed All Eddin</h1>
+        <h5>University of Engineering</h5>
+        <p>Email: Ahmed@gmail.com</p>
+      </div>
+    
     </div>
 
-    <div class="education"></div>
-  
-<!-- ION CONTENT MAIN DEV -->
+    
+    
+      <!-- _________________________________________________ -->
+
+      <div class="profile-btns">
+        <ion-button
+          style="--background: #5954d3"
+          shape="round"
+          (click)="Show_Profile_Editor=1"
+        >
+          <ion-label>Edit</ion-label>
+          <ion-icon name="create-outline" style="color: #5075d5"></ion-icon>
+        </ion-button>
+        <!-- <ion-button color="warning" shape="round" (click)="Show_Profile_Editor=1">
+          <ion-label>Share Profile</ion-label>
+          <ion-icon name="share-outline" ></ion-icon>
+        </ion-button> -->
+      </div>
+      <!-- _________________________________________________ -->
+    </div>
+    <!-- _________________________________________________ -->
+    <div class="education">
+      <h1>
+        <ion-icon name="school-outline"></ion-icon>
+        Education
+      </h1>
+      <ion-buttons slot="end">
+        <ion-button (click)="Show_Profile_Editor=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <div class="schools">
+        <div class="school" *ngFor="let school of education">
+          <div>
+            <h2>School</h2>
+            <h5>{{school.school}}</h5>
+            <h2>Degree</h2>
+            <h5 >{{school.degree}}</h5>
+            <h2>Field of Study</h2>
+            <h5>{{school.fieldofstudy}}</h5>
+          </div>
+          <div>
+            <h2>Start Date</h2>
+            <h5>{{school.datefrom}}</h5>
+            <h2>End Date</h2>
+            <h5>{{school.dateto}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- _________________________________________________ -->
+
+    <!-- _________________________________________________ -->
+    <div class="myexperience">
+      <h2>
+        <ion-icon name="code-working-outline"></ion-icon>
+        Experience
+      </h2>
+      <ion-buttons slot="end">
+        <ion-button (click)="Show_Profile_Editor=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <!-- _________________________________________________ -->
+
+      <div class="experiences">
+        <!-- _________________________________________________ -->
+        <div class="experience">
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label position="stacked">Title</ion-label>
+                <h4>FrontEnd Developer</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label position="stacked">Company</ion-label>
+                <h4>Osroot</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label position="stacked">From</ion-label>
+                <h4>00 / 00 / 2023</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label position="stacked">To</ion-label>
+                <h4>00 / 00 / 2023</h4>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <!-- _________________________________________________ -->
+      </div>
+      <!-- _________________________________________________ -->
+    </div>
+    <!-- _________________________________________________ -->
+
+    <div class="langs">
+      <h2>
+        <ion-icon name="language-outline"></ion-icon>
+        Languages
+      </h2>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="Show_Profile_Editor=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <div class="languages">
+        <div class="language">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Language</ion-label>
+                <h4>English</h4>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Level</ion-label>
+                <h4>Native</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Language</ion-label>
+                <h4>Arabic</h4>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Level</ion-label>
+                <h4>Native</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Language</ion-label>
+                <h4>French</h4>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Level</ion-label>
+                <h4>Native</h4>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </div>
+    <!-- _________________________________________________ -->
+
+    <div class="myskills">
+      <h2>
+        <ion-icon name="happy-outline"></ion-icon>
+        Skills
+      </h2>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="Show_Profile_Editor=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <div class="skills">
+
+
+        <ion-chip color="primary">HTML</ion-chip>
+      </div>
+    </div>
+    <!-- _________________________________________________ -->
+
+    <div class="myservices">
+      <h2>
+        <ion-icon name="server-outline"></ion-icon>
+        Services
+      </h2>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="Show_Profile_Editor=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <div class="services">
+        <div class="service">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Service</ion-label>
+                <h4>Backend</h4>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </div>
+    <!-- _________________________________________________ -->
+
+    <!-- ION CONTENT MAIN DEV -->
   </div>
-<!-- ION CONTENT ENDING -->
+  <!-- ION CONTENT ENDING -->
+
+
+
+  <div *ngIf="Show_Profile_Editor" class="the-form" (click)="Show_Profile_Editor=0">
+
+    
+  </div>
+  
+  <div class="form ion-text-center" *ngIf="Show_Profile_Editor" >
+    <h2 style="color: #5075d5;">Edit Profile</h2>
+
+    <form action="">
+
+      <div class="edu">
+
+        <ion-row>
+          <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">School</ion-label>
+            <ion-input value="{{school}}"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Degree</ion-label>
+            <ion-input value="Good"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Field of Study</ion-label>
+            <ion-input value="Computer Science"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    </form>
+
+
+  </div>
+  
 </ion-content>

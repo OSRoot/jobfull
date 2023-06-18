@@ -10,7 +10,7 @@
     <ion-grid>
       <h1
         style="
-          color: #5075d5;
+          color: #bebebe;
           font-size: 30px;
           font-weight: bold;
           margin-bottom: 20px;
@@ -317,7 +317,7 @@
             style="width: 100%; height: 100px"
             color="success"
             (click)="handle_data_form()"
-            routerLink="/home"
+            routerLink="/add-edu"
             routerDirection="forward"
             [disabled]="!form_data.valid"
             >Submit My Profile</ion-button
@@ -325,46 +325,47 @@
         </ion-col>
       </ion-row>
 
-      <div class="ion-fixed" ion-fixed></div>
+      <!-- <div class="ion-fixed" ion-fixed></div> -->
 
-      <div
-        class="ion-text-center"
-        style="
-          background: #131524;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-        "
-      >
-        <h3 style="color: #5075d5">Copyrights @ Ahmed Ala 2023</h3>
-        <div class="social-icon">
-          <ion-buttons>
-            <ion-button>
-              <ion-icon
-                color="light"
-                style="font-size: x-large"
-                name="logo-facebook"
-              ></ion-icon>
-            </ion-button>
-
-            <ion-button>
-              <ion-icon
-                color="light"
-                style="font-size: x-large"
-                name="logo-twitter"
-              ></ion-icon>
-            </ion-button>
-
-            <ion-button>
-              <ion-icon
-                color="light"
-                style="font-size: x-large"
-                name="logo-linkedin"
-              ></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </div>
     </ion-grid>
   </section>
+  
+  <div
+  class="ion-text-center"
+  style="
+    background: #131524;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  "
+>
+  <h3 style="color: #5075d5">Copyrights @ 2023</h3>
+  <div class="social-icon">
+    <ion-buttons>
+      <ion-button>
+        <ion-icon
+          color="light"
+          style="font-size: x-large"
+          name="logo-facebook"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-button>
+        <ion-icon
+          color="light"
+          style="font-size: x-large"
+          name="logo-twitter"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-button>
+        <ion-icon
+          color="light"
+          style="font-size: x-large"
+          name="logo-linkedin"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+</div>
 </ion-content>

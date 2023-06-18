@@ -58,6 +58,10 @@ const routes: Routes = [
     path: 'account-settings',
     loadChildren: () => import('./account-settings/account-settings.module').then( m => m.AccountSettingsPageModule)
   },
+  {
+    path: 'add-edu',
+    loadChildren: () => import('./add-edu/add-edu.module').then( m => m.AddEduPageModule)
+  },
 
 
 

@@ -7,6 +7,7 @@ import { Observable, take } from 'rxjs';
 
 const API = 'http://localhost:5106/api/Auth/'
 const API0 = 'http://localhost:5106/api/'
+const API1 = 'http://localhost:5106/api/Freelancer/AddLanExED'
 const STORAGE_KEY = 'MyData'
 
 @Injectable({
@@ -15,6 +16,14 @@ const STORAGE_KEY = 'MyData'
 
 
 export class DataService {
+
+  // Vars 
+  user_edu = [];
+  user_exp = [];
+  user_lan = [];
+  user_ski = [];
+  
+
   token = '';
   constructor(
     private storage: Storage,
@@ -30,7 +39,11 @@ export class DataService {
 
   async init() {
     await this.storage.defineDriver(cordovaSQLiteDriver)
-    await this.storage.create()
+    await this.storage.create();
+
+    // this.storage.set('USEREDU', '');
+    // this.storage.set('USEREXP', '');
+    // this.storage.set('USERSKI', '');
     // this.storage.set('USER_LOGGED', [])
     this.storage.get('USER_LOGGED').then(user => {
       if (user) {
@@ -126,5 +139,10 @@ export class DataService {
     //   .set('Content-type', 'application/json')
 
     // return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form,).pipe(take(1))
+  }
+
+
+  add_ex_edu_ski_serv(body:any){
+    return this.http.post(`${API0}Freelancer/AddLanExED`,body).pipe(take(1));
   }
 }

@@ -29,13 +29,6 @@
 *{
     scroll-behavior: smooth;
 }
-ion-toolbar{
-    --background:#131524
-}
-
-ion-content{
-    --background:#131524
-}
 
 ion-button[disabled] {
     cursor: not-allowed !important;
@@ -51,7 +44,11 @@ ion-button[disabled] {
 
 
   
-  .main{
+  // .main{
     
-    background-color: #f4f4f4;
-  }
+  //   background-color: #f4f4f4;
+  // }
+
+  body{
+    background-color: #131524;
+    }

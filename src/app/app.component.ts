@@ -13,7 +13,7 @@ export class AppComponent {
   ) {
 
     this.data_service.init()
-
+    
   }
 
   // async storage_init() {

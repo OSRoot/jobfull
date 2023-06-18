@@ -129,13 +129,17 @@ export class Stage01Page implements OnInit {
     // Init 
     this.data_service.send_freelancer_form(formData).subscribe((res: any) => {
       const freelancer = res.data
+      console.log(freelancer);
+      
       this.storage.set('FreeLancer', freelancer);
 
       // console.log(freelancer);
 
 
     }, err => {
-      alert(err);
+      console.log(err);
+      
+      alert(err.message);
       return;
 
     })
