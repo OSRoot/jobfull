@@ -1,0 +1,100 @@
+ion-toolbar {
+    --background: #131524
+}
+
+ion-content {
+    --background: #131524;
+}
+
+.container {
+    width: 60%;
+    margin: 20px auto;
+    color: #bebebe;
+    padding: 10px;
+
+    @media(max-width:768px) {
+        width: 100%;
+    }
+
+    h2 {
+        padding: 10px 0;
+    }
+
+    ion-icon {
+        color: rgb(16, 46, 196);
+        margin: 0 5px;
+        font-size: 20px;
+        margin-right: 0;
+    }
+
+    .requirements {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        div {
+            width: 45%;
+
+            p {
+                color: gray
+            }
+        }
+    }
+
+    .skills-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #808080;
+        padding: 15px 0;
+
+        span {
+            width: 100px;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 25px;
+            background-color: #1a1e44;
+            text-align: center;
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .activity {
+        border-bottom: 1px solid #808080;
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+
+            span {
+                &:nth-child(1) {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+
+                &:nth-child(2) {
+                    color: #808080;
+                }
+            }
+        }
+    }
+
+    button {
+        background-color: #141d75;
+        color: #bebebe;
+        font-size: 17px;
+        border: 0;
+        padding: 12px 10px;
+        cursor: pointer;
+        display: block;
+        width: fit-content;
+        margin: 15px auto;
+        border-radius: 30px;
+    }
+}

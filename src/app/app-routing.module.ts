@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'add-edu',
     loadChildren: () => import('./add-edu/add-edu.module').then( m => m.AddEduPageModule)
   },
+  {
+    path: 'jop-detail',
+    loadChildren: () => import('./jop-detail/jop-detail.module').then( m => m.JopDetailPageModule)
+  },
 
 
 

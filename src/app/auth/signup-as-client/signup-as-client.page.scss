@@ -1,14 +1,22 @@
-form{
-    ion-item{
+ion-toolbar {
+    --background: #131524
+}
+
+ion-content {
+    --background: #131524;
+}
+
+form {
+    ion-item {
         padding: 1%;
         border-radius: 100px;
-   
+
     }
 
 }
 
-[ion-fixed]{
-    
+[ion-fixed] {
+
     min-height: calc(100% - 550px);
-    
-  }
+
+}
