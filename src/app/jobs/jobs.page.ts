@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobsPage implements OnInit {
 
+
+  jobs:any = [];
+
   constructor() { }
 
   ngOnInit() {

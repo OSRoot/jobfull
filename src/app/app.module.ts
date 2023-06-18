@@ -21,6 +21,7 @@ import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     IonicStorageModule.forRoot({
       name: 'MyData',

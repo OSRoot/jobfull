@@ -15,24 +15,24 @@ export class MyhomePage implements OnInit {
     {
       title: 'Python',
       image: '../../assets/work.avif',
-      desc: 'Created an AI Algorithim'
+      desc: 'AI Algorithim'
     },
     {
-      title: 'Python',
+      title: 'Javascript',
       image: '../../assets/work.avif',
-      desc: 'Created an AI Algorithim'
+      desc: 'Web development'
     }, {
-      title: 'Python',
+      title: 'Typescript',
       image: '../../assets/work.avif',
-      desc: 'Created an AI Algorithim'
+      desc: 'Web'
     }, {
-      title: 'Python',
+      title: 'Angular',
       image: '../../assets/work.avif',
-      desc: 'Created an AI Algorithim'
+      desc: 'Web Framework'
     }, {
-      title: 'Python',
+      title: 'React',
       image: '../../assets/work.avif',
-      desc: 'Created an AI Algorithim'
+      desc: 'Framework'
     },
   ]
 
@@ -52,21 +52,7 @@ export class MyhomePage implements OnInit {
       image: '../../assets/work.avif',
       job: 'Full stack developer'
     },
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
+    
   ]
   // ###################################################
 

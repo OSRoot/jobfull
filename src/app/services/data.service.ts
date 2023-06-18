@@ -131,6 +131,21 @@ export class DataService {
 
     return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
   }
+
+
+
+  update_freelancer_form(freelancer_form: FormData) {
+    this.storage.set('Freelancer_Data', []);
+
+    let headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${this.token}`)
+    // .set('Content-Type', 'multipart/form-data; boundary=--14737809831466499882746641449')
+    // .set('Accept', 'Application/json')
+
+    return this.http.put(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
+  }
+
+
   send_client_form(freelancer_form: any) {
     this.storage.set('Client_Data', []);
 

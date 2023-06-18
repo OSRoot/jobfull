@@ -65,7 +65,7 @@ export class Stage01Page implements OnInit {
     if (event.target.files.length > 0) {
       this.Cv = event.target.files[0]
       console.log(this.Cv.name);
-
+      this.storage.set('cv_url', this.Cv.name)
       // const formData = new FormData();
       // formData.append('file', file)
       // this.Cv = formData;
@@ -79,12 +79,14 @@ export class Stage01Page implements OnInit {
     console.log(data);
 
   }
-
+ 
 
   ion_change_photo(event: any) {
     if (event.target.files.length > 0) {
       this.Photo = event.target.files[0];
       console.log(this.Photo);
+      this.storage.set('cv_url', this.Photo.name)
+
 
       // const formData = new FormData();
       // formData.append('photo', file)
@@ -109,8 +111,9 @@ export class Stage01Page implements OnInit {
     formData.append('HourlyRate', this.HourlyRate);
     formData.append('Rating', this.Rating);
     formData.append('phoneNumber', this.PhoneNumber);
-    formData.append('Cv', this.Cv);
-    formData.append('Photo', this.Photo);
+    formData.set('Cv', this.Cv);
+    formData.set('Photo', this.Photo);
+    // formData.get('Photo')
     // Save Form data in the storage
     // const full_form: object = {
     //   Title: [this.Title],

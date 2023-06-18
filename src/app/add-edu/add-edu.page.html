@@ -6,94 +6,157 @@
 
 <ion-content>
   <!-- Education -->
+  
+  <h2 class="ion-text-center" style="color: #bebebe;">Add Education</h2>
+  <form [formGroup]="the_form">
+    <ion-row >
 
-  <h2>
-    <ion-icon name="checkmark-done-outline"></ion-icon> Add Your Education
-  </h2>
-  <div class="container">
-    <form action="" style="color: white">
-      <div>
-        <ion-icon name="school-outline"></ion-icon>
-        <input type="text" placeholder=" School" id="school" />
-      </div>
-      <div>
-        <ion-icon name="checkmark-outline"></ion-icon>
-        <input type="text" placeholder=" Degree" id="school" />
-      </div>
-      <div>
-        <ion-icon name="checkmark-done-outline"></ion-icon>
-        <input type="text" placeholder="Description" id="school" />
-      </div>
-      <div>
-        <ion-icon name="link-outline"></ion-icon>
-        <input type="text" placeholder=" Field Of Study" id="school" />
-      </div>
-      <div>
-        <ion-icon name="shield-checkmark-outline"></ion-icon>
-        <input type="text" placeholder=" Start Date" id="school" />
-      </div>
-      <div>
-        <ion-icon name="chevron-down-outline"></ion-icon>
-        <input type="text" placeholder=" End Date" id="school" />
-      </div>
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">School</ion-label>
+          <ion-input [(ngModel)]="school" formControlName="school" type="text" placeholder="School"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Degree</ion-label>
+          <ion-input [(ngModel)]="degree" formControlName="degree" type="text" placeholder="Degree"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Field of Study</ion-label>
+          <ion-input [(ngModel)]="fieldofstudy" formControlName="fieldofstudy" type="text" placeholder="Field od Study"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row> 
+
+    <ion-row >
+
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">From</ion-label>
+          <ion-input [(ngModel)]="datefrom" formControlName="datefrom" type="date" placeholder="Date From"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">To</ion-label>
+          <ion-input [(ngModel)]="dateto" formControlName="dateto" type="date" placeholder="Date to"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input [(ngModel)]="description" formControlName="description" type="text" placeholder="Describe"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>  
+      
+
+    <h2 class="ion-text-center" style="color: #bebebe;">Add Experience</h2>
+    <ion-row >
+
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">Title</ion-label>
+          <ion-input [(ngModel)]="title" formControlName="title" type="text" placeholder="Ex. Developer"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Company</ion-label>
+          <ion-input [(ngModel)]="company" formControlName="company" type="text" placeholder="ex. Google"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input [(ngModel)]="descriptionn" formControlName="descriptionn" type="text" placeholder="Description"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row> 
+
+    <ion-row >
+
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">Country</ion-label>
+          <ion-input [(ngModel)]="country" formControlName="country" type="text" placeholder="Country"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Start date</ion-label>
+          <ion-input [(ngModel)]="startdate" formControlName="startdate" type="date" placeholder="date"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">End Date</ion-label>
+          <ion-input [(ngModel)]="enddate" formControlName="enddate" type="date" placeholder="date"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <h2 class="ion-text-center" style="color: #bebebe;">Add Languages</h2>
+
+    <ion-row >
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Language</ion-label>
+          <ion-input [(ngModel)]="langname" formControlName="langname" type="text" placeholder="ex. English"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Level</ion-label>
+          <ion-input [(ngModel)]="langlevel" formControlName="langlevel" type="text" placeholder="ex. Native"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    
+    <ion-row >
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Language (optional)</ion-label>
+          <ion-input type="text" placeholder="ex. French"></ion-input>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Level</ion-label>
+          <ion-input type="text" placeholder="ex. Excellent"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-col>
+      <ion-button color="success" expand="block" [disabled]="the_form.invalid">
+        <ion-icon name="save" ></ion-icon>
+        <ion-label>Save</ion-label>
+      </ion-button>
+    </ion-col>
+
     </form>
-  </div>
-
-  <!-- Experience -->
-
-  <h2>
-    <ion-icon name="checkmark-done-outline"></ion-icon> Add Your Experience
-  </h2>
-  <div class="container">
-    <form action="" style="color: white">
-      <div>
-        <ion-icon name="school-outline"></ion-icon>
-        <input type="text" placeholder=" Title" id="school" />
-      </div>
-      <div>
-        <ion-icon name="checkmark-outline"></ion-icon>
-        <input type="text" placeholder=" Company" id="school" />
-      </div>
-      <div>
-        <ion-icon name="checkmark-done-outline"></ion-icon>
-        <input type="text" placeholder="start Date" id="school" />
-      </div>
-      <div>
-        <ion-icon name="link-outline"></ion-icon>
-        <input type="text" placeholder=" Country" id="school" />
-      </div>
-      <div>
-        <ion-icon name="shield-checkmark-outline"></ion-icon>
-        <input type="date" placeholder=" Start Date" id="school" />
-      </div>
-      <div>
-        <ion-icon name="chevron-down-outline"></ion-icon>
-        <input type="date" placeholder=" End Date" id="school" />
-      </div>
-      <div>
-        <ion-icon name="chevron-down-outline"></ion-icon>
-        <input type="text" placeholder=" Regoin" id="school" />
-      </div>
-    </form>
-  </div>
-  <!-- Experience -->
-
-  <h2><ion-icon name="checkmark-done-outline"></ion-icon> Add Your Language</h2>
-  <div class="container">
-    <form action="" style="color: white">
-      <div>
-        <ion-icon name="language-outline"></ion-icon>
-        <input type="text" placeholder=" Language" id="school" />
-      </div>
-      <div>
-        <ion-icon name="golf-outline"></ion-icon>
-        <select name="" id="">
-          <option hidden value="Enter Your Level">Level</option>
-          <option value="Beginner">Good</option>
-          <option value="Intermediate">Inflent</option>
-          <option value="Advaced">Native</option>
-        </select>
-      </div>
-    </form>
-  </div>
+  
 </ion-content>

@@ -66,6 +66,10 @@ const routes: Routes = [
     path: 'jop-detail',
     loadChildren: () => import('./jop-detail/jop-detail.module').then( m => m.JopDetailPageModule)
   },
+  {
+    path: 'update-freelancer',
+    loadChildren: () => import('./update-freelancer/update-freelancer.module').then( m => m.UpdateFreelancerPageModule)
+  },
 
 
 
