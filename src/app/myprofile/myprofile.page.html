@@ -3,6 +3,28 @@
     <ion-title style="color: antiquewhite" class="ion-text-center"
       >My Profile</ion-title
     >
+    <ion-buttons slot="start">
+      <ion-button routerLink="/myhome" routerDirection="back">
+        <ion-icon
+          name="home"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5; font-weight: 800;"
+          >Jobful</ion-label
+        >
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/myhome" routerDirection="back">
+        <ion-icon
+          name="home"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5"
+          >Home</ion-label
+        >
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!-- ION CONTENT START -->
@@ -14,13 +36,13 @@
      
     <div class="image">
       <div>
-        <img src="{{user_image}}" alt="">
+        <img src="../../assets/profile.png" alt="">
       </div>
     
       <div class="info">
-        <h1>Ahmed All Eddin</h1>
+        <h1>{{fullname}}</h1>
         <h5>University of Engineering</h5>
-        <p>Email: Ahmed@gmail.com</p>
+        <p>Email: {{email}}</p>
       </div>
     
     </div>
@@ -38,6 +60,16 @@
           <ion-label>Edit</ion-label>
           <ion-icon name="create-outline" style="color: #5075d5"></ion-icon>
         </ion-button>
+
+        <ion-button
+          style="--background: #5954d3"
+          shape="round"
+          (click)="Show_Profile_Editor=1"
+        >
+          <ion-label>Add Service</ion-label>
+          <ion-icon name="hammer-outline"  style="color: #5075d5"></ion-icon>
+        </ion-button>
+
         <!-- <ion-button color="warning" shape="round" (click)="Show_Profile_Editor=1">
           <ion-label>Share Profile</ion-label>
           <ion-icon name="share-outline" ></ion-icon>
@@ -106,28 +138,28 @@
         <div class="experience">
           <ion-row>
             <ion-col>
-              <ion-item lines="none">
+              <ion-item lines="none" style="--background: #292B3A;">
                 <ion-label position="stacked">Title</ion-label>
                 <h4>FrontEnd Developer</h4>
               </ion-item>
             </ion-col>
 
             <ion-col>
-              <ion-item lines="none">
+              <ion-item lines="none" style="--background: #292B3A;">
                 <ion-label position="stacked">Company</ion-label>
                 <h4>Osroot</h4>
               </ion-item>
             </ion-col>
 
             <ion-col>
-              <ion-item lines="none">
+              <ion-item lines="none" style="--background: #292B3A;">
                 <ion-label position="stacked">From</ion-label>
                 <h4>00 / 00 / 2023</h4>
               </ion-item>
             </ion-col>
 
             <ion-col>
-              <ion-item lines="none">
+              <ion-item lines="none" style="--background: #292B3A;">
                 <ion-label position="stacked">To</ion-label>
                 <h4>00 / 00 / 2023</h4>
               </ion-item>
@@ -161,36 +193,36 @@
         <div class="language">
           <ion-row>
             <ion-col>
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Language</ion-label>
                 <h4>English</h4>
               </ion-item>
 
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Level</ion-label>
                 <h4>Native</h4>
               </ion-item>
             </ion-col>
 
             <ion-col>
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Language</ion-label>
                 <h4>Arabic</h4>
               </ion-item>
 
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Level</ion-label>
                 <h4>Native</h4>
               </ion-item>
             </ion-col>
 
             <ion-col>
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Language</ion-label>
                 <h4>French</h4>
               </ion-item>
 
-              <ion-item>
+              <ion-item style="--background: #292B3A;">
                 <ion-label position="stacked">Level</ion-label>
                 <h4>Native</h4>
               </ion-item>
@@ -220,7 +252,9 @@
       <div class="skills">
 
 
-        <ion-chip color="primary">HTML</ion-chip>
+        <ion-chip class="ion-text-center" style="height: 60px; --background: #292B3A;">
+          <p class="ion-text-center" style="color: #bebebe; font-weight: 800;">HTML</p>
+        </ion-chip>
       </div>
     </div>
     <!-- _________________________________________________ -->
@@ -245,9 +279,16 @@
         <div class="service">
           <ion-row>
             <ion-col>
-              <ion-item>
-                <ion-label position="stacked">Service</ion-label>
-                <h4>Backend</h4>
+              <ion-item style="--background: #292B3A;">
+                <ion-label position="stacked" style="color: #bebebe; font-weight: 800;">Service</ion-label>
+                <h4 style="color: #fff;">Backend</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item style="--background: #292B3A;">
+                <ion-label position="stacked" style="color: #bebebe; font-weight: 800;">Service</ion-label>
+                <h4 style="color: #fff;">FrontEnd</h4>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -266,39 +307,93 @@
 
     
   </div>
-  
-  <div class="form ion-text-center" *ngIf="Show_Profile_Editor" >
+
+
+  <div class="form ion-text-center ion-padding" *ngIf="Show_Profile_Editor" >
     <h2 style="color: #5075d5;">Edit Profile</h2>
-
-    <form action="">
-
+  
+    <form  action="">
       <div class="edu">
-
+  
         <ion-row>
           <ion-col>
-          <ion-item lines="none">
-            <ion-label position="stacked">School</ion-label>
-            <ion-input value="{{school}}"></ion-input>
-          </ion-item>
+            <ion-item class="item">
+              <ion-label position="stacked">Payment Amount $:</ion-label>
+              <ion-input  type="number"></ion-input>
+          </ion-item >
         </ion-col>
+         
         <ion-col>
-          <ion-item lines="none">
-            <ion-label position="stacked">Degree</ion-label>
-            <ion-input value="Good"></ion-input>
+          <ion-item class="item">
+            <ion-label position="stacked">Delivery time (Days):</ion-label>
+            <ion-input  type="number"></ion-input>
           </ion-item>
         </ion-col>
-
+        </ion-row>
+        <ion-row>
+  
         <ion-col>
-          <ion-item lines="none">
-            <ion-label position="stacked">Field of Study</ion-label>
-            <ion-input value="Computer Science"></ion-input>
+          <ion-item class="item">
+            <ion-label position="stacked">Description:</ion-label>
+            <ion-input  type="text"></ion-input>
           </ion-item>
         </ion-col>
+  
       </ion-row>
+  
+      <ion-button (click)="update_freelancer()" color="success" expand="block" style="width: 50%; margin: auto;">
+        Submit
+      </ion-button>
     </div>
     </form>
-
-
   </div>
+  
+
+
+  <div *ngIf="Show_Profile_Editor" class="the-form" (click)="Show_Profile_Editor=0">
+
+    
+  </div>
+
+
+  <div class="form ion-text-center ion-padding" *ngIf="Show_Profile_Editor" >
+    <h2 style="color: #5075d5;">Edit Education Experience Skills Languages Services</h2>
+  
+    <form  action="">
+      <div class="edu">
+  
+        <ion-row>
+          <ion-col>
+            <ion-item class="item">
+              <ion-label position="stacked">School</ion-label>
+              <ion-input  type="text"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item">
+            <ion-label position="stacked">Delivery time (Days):</ion-label>
+            <ion-input  type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+  
+        <ion-col>
+          <ion-item class="item">
+            <ion-label position="stacked">Description:</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+  
+      </ion-row>
+  
+      <ion-button (click)="update_edu_ex_lang_ski_ser()" color="success" expand="block" style="width: 50%; margin: auto;">
+        Submit
+      </ion-button>
+    </div>
+    </form>
+  </div>
+
   
 </ion-content>

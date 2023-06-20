@@ -11,7 +11,7 @@ ion-content{
   gap: .5%;
   .sidemenu{
     width: 20%;
-    background: #eee;
+    background: #292B3A;
     box-shadow: 0 0 10px #b5b5b5;
     border-radius: 10px;
     padding: 10px;
@@ -28,3 +28,52 @@ ion-content{
 
   }
 }
+
+
+.the-form{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;   
+  background: rgba(0, 0, 0 , 0.5);
+  z-index: 999;
+  
+  
+  
+ }
+ .form{
+  // ion-button{
+      // margin-top: 50   px;
+  // }
+     background: #292B3A;
+     position: fixed;
+     z-index: 9999;
+     top: 10%;
+     right: 10%;
+     left: 10%;
+     bottom: 10%;
+     border-radius: 5px;
+ 
+     overflow: scroll;
+ 
+     .edu{
+         border: 2px solid #292B3A;
+         padding-left: 20px;
+         padding-right: 20px;
+         height: 250px;
+     }
+
+ 
+  }
+  ion-row{
+      margin-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      ion-col{
+          ion-item{
+              border-radius: 10px;
+          }
+      }
+     }
+

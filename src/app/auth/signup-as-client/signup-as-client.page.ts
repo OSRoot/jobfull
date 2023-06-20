@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-signup-as-client',
@@ -27,7 +28,8 @@ export class SignupAsClientPage implements OnInit {
     private router: Router,
     private loader: LoadingController,
     private alert_ctrl: AlertController,
-    private storage: Storage
+    private storage: Storage,
+    private data_service:DataService
   ) {
     this.take_me_home();
 
@@ -73,7 +75,70 @@ export class SignupAsClientPage implements OnInit {
 
 
     // ####################################
+  this.data_service.sign_up_client(user).subscribe(
+    async res => {
+      console.log(res)
+      let client = res;
+      this.storage.set('USER_LOGGED', client)
+      let alert_signup = await this.alert_ctrl.create({
+        mode: 'ios',
+        header: `Welcome ${client.username}`,
+        message: 'Please Choose What\'s Next?',
+        buttons: [
+          {
+            text: 'Home', handler: () => {
+              if (res.isAuthenticated === true) {
+                this.sign_up_form.reset()
+                this.router.navigate(['myhome']);
+                return;
+              }
+              alert('User not Signed up or Logged in!')
+            }
+          },
+          {
+            text: 'Complete Profile', handler: () => {
+              if (res.isAuthenticated === true) {
+                this.sign_up_form.reset()
+                this.router.navigate(['stage01'])
+                return;
+              }
+              alert('User not Signed up or Logged in!')
+            }
+          }
+        ]
+      });
+      await alert_signup.present()
+      // localStorage.setItem('Freelancer', JSON.stringify(freelancer))
 
+    }, async err => {
+      let err_error_title = err.error.title;
+      let err_error_message = err.error.message;
+      let alert_error = await this.alert_ctrl.create({
+        mode: 'md',
+        header: "Error Failed to Sign up!",
+        message: `Reason: ${err.error.title || err.error.message}`,
+        buttons: [
+          { text: 'Cancel', role: 'cancel' },
+          { text: 'Edit Again', role: 'cancel' },
+          {
+            text: 'Login instead', handler: () => {
+              this.router.navigate(['login']);
+              this.sign_up_form.reset()
+              return;
+            }
+          }
+        ]
+      });
+      await alert_error.present();
+      return;
+    })
+
+
+
+
+    // ####################################
+
+  // )
 
   }
   // ########## handle the password visibilty ###############

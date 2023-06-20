@@ -7,6 +7,9 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./myprofile.page.scss'],
 })
 export class MyprofilePage implements OnInit {
+  fullname = '';
+  email=''
+  user_role!:string;
   user_image:any;
   imgUrl:any
   Show_Profile_Editor:number=0;
@@ -34,10 +37,15 @@ export class MyprofilePage implements OnInit {
     this.storage.get('USER_LOGGED').then((res: any) => {
       const username = res.username;
       this.username = username
+      this.fullname = res.fName+' ' +res.lName
+      this.email = res.email
     });
     this.storage.get('FreeLancer').then((res: any) => {
       this.user_image = res.imageName;
-      const imgUrl = `http://localhost:5106/api/imgs/${res.imageName}`
+      this.user_role = res.user.roleName
+      console.log(res.user.roleName);
+      
+      // const imgUrl = `http://localhost:5106/api/imgs/${res.imageName}`
     })
   }
 
@@ -56,5 +64,6 @@ export class MyprofilePage implements OnInit {
   // }1
   
   
-
+  update_freelancer(){}
+  update_edu_ex_lang_ski_ser(){}
 }

@@ -80,7 +80,7 @@
         lines="none"
       >
         <ion-avatar class="ion-margin">
-          <ion-img src="../../assets/home.png"></ion-img>
+          <ion-img src="../../assets/profile.png"></ion-img>
         </ion-avatar>
         <ion-label>{{username}}</ion-label>
       </ion-item>
@@ -155,12 +155,13 @@
 
       <div class="work-activity">
         <div class="work">
-          <h2>My Works</h2>
+          <h2>Recent Jobs</h2>
           <div>
             <ion-card *ngFor="let work of work_list;">
               <img src="{{work.image}}" alt="pic" />
               <ion-card-title>{{work.title}}</ion-card-title>
               <ion-card-content>{{work.desc}}</ion-card-content>
+              <ion-button routerLink="/jop-detail" color="medium">See More</ion-button>
             </ion-card>
           </div>
         </div>

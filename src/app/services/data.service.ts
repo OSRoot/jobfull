@@ -160,4 +160,49 @@ export class DataService {
   add_ex_edu_ski_serv(body:any){
     return this.http.post(`${API0}Freelancer/AddLanExED`,body).pipe(take(1));
   }
+
+  // ########################################################################################
+  // ########################################################################################
+// Proposals
+  get_one_proposal(id:any){
+    return this.http.get(`http://localhost:5106/api/Proposal/Get_By_Id?id=${id}`).pipe(take(1))
+  }
+  get_all_proposals(){
+    return this.http.get(`http://localhost:5106/api/Proposal/Get_All`).pipe(take(1))
+  }
+  add_proposal(proposal:any){
+    return this.http.post('http://localhost:5106/api/Proposal/AddProposal', proposal).pipe(take(1))
+  }
+  update_proposal(proposal: any){
+    return this.http.put('http://localhost:5106/api/Proposal/UpadteProposal', proposal).pipe(take(1))
+  }
+  delete_proposal(id:any){
+    return this.http.delete(`http://localhost:5106/api/Proposal/Delete?id=${id}`).pipe(take(1))
+  }
+
+  
+  // ########################################################################################
+  // ########################################################################################
+
+  
+  // ########################################################################################
+  // ########################################################################################
+// Services
+get_one_service(id:any){
+  return this.http.get(`http://localhost:5106/api/Proposal/Get_By_Id?id=${id}`).pipe(take(1))
+}
+get_all_services(){
+  return this.http.get(`http://localhost:5106/api/Proposal/Get_All`).pipe(take(1))
+}
+add_service(proposal:any){
+  return this.http.post('http://localhost:5106/api/Proposal/AddProposal', proposal).pipe(take(1))
+}
+update_service(proposal: any){
+  return this.http.put('http://localhost:5106/api/Proposal/UpadteProposal', proposal).pipe(take(1))
+}
+delete_service(id:any){
+  return this.http.delete(`http://localhost:5106/api/Proposal/Delete?id=${id}`).pipe(take(1))
+}
+
+
 }

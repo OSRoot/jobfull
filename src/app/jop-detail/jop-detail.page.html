@@ -3,7 +3,19 @@
     <ion-title style="color: #bebebe" class="ion-text-center"
       >Jop Description</ion-title
     >
+    <ion-buttons slot="end">
+      <ion-button routerLink="/myhome" routerDirection="back">
+        <ion-icon
+          name="home"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5"
+          >Home</ion-label
+        >
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -81,6 +93,66 @@
       </div>
     </div>
 
-    <button routerLink="/jobs">Submit a Proposal</button>
+    <button (click)="Show_proposal=1">Send a Proposal</button>
   </div>
+
+
+  
+  <div *ngIf="Show_proposal" class="the-form" (click)="Show_proposal=0">
+
+    
+  </div>
+  
+  <div class="form ion-text-center ion-padding" *ngIf="Show_proposal" >
+    <h2 style="color: #5075d5;">Submit Your Proposal</h2>
+
+    <form [formGroup]="proposal_form" action="">
+      <div class="edu">
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="stacked">Payment Amount $:</ion-label>
+              <ion-input [(ngModel)]="payment_amount" formControlName="payment_amount" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+         
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Delivery time (Days):</ion-label>
+            <ion-input [(ngModel)]="delivery_time" formControlName="delivery_time" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Description:</ion-label>
+            <ion-input [(ngModel)]="description" formControlName="description" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+
+
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Attach File (optional):</ion-label>
+            <ion-input (change)="ion_change_attach($event)" type="file"></ion-input>
+          </ion-item>
+        </ion-col>
+
+
+      </ion-row>
+
+      <ion-button (click)="add_proposal()" color="success" expand="block" style="width: 50%; margin: auto;" [disabled]="proposal_form.invalid">
+        Submit
+      </ion-button>
+      
+    </div>
+    </form>
+
+
+  </div>
+
+
 </ion-content>
