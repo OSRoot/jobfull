@@ -119,4 +119,29 @@ export class HomePage {
       }
     })
   }
+
+  async alert_talent(){
+    let alert = await this.alert_ctrl.create({
+      header:'INFO',
+      message:'Login First',
+      buttons:[
+        {text:'Login', handler:()=>{this.router.navigate(['/login'])}},
+        {text:'Cancel', role:'cancel'}
+      ]
+    });
+    await alert.present();
+  }
+
+
+  async alert_work(){
+    let alert = await this.alert_ctrl.create({
+      header:'INFO',
+      message:'Login First',
+      buttons:[
+        {text:'Login', handler:()=>{this.router.navigate(['/login'])}},
+        {text:'Cancel', role:'cancel'}
+      ]
+    });
+    await alert.present();
+  }
 }

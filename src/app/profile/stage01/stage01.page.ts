@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 import { Storage } from '@ionic/storage-angular';
+import { AlertController } from '@ionic/angular';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-stage01',
@@ -29,6 +31,8 @@ export class Stage01Page implements OnInit {
   constructor(
     private data_service: DataService,
     private storage: Storage,
+    private alert_ctrl: AlertController,
+    private router : Router
 
   ) {
 
@@ -57,7 +61,9 @@ export class Stage01Page implements OnInit {
   // update_form() {
   //   this.handle_data_form()
   // }
-
+kick_me(){
+  this.storage.get('')
+}
 
 
 
@@ -133,17 +139,17 @@ export class Stage01Page implements OnInit {
     this.data_service.send_freelancer_form(formData).subscribe((res: any) => {
       const freelancer = res.data
       console.log(freelancer);
-      
       this.storage.set('FreeLancer', freelancer);
-
+      if (freelancer){this.router.navigate(['/add-edu'])}
+      else {return}
+      
       // console.log(freelancer);
 
 
     }, err => {
       console.log(err);
-      
-      alert(err.message);
-      return;
+     this.alert_error(err);
+     return
 
     })
     // Set new Data to the local storage;
@@ -154,6 +160,7 @@ export class Stage01Page implements OnInit {
 
 
     // send Form to the backend
+
   }
 
 
@@ -201,5 +208,17 @@ export class Stage01Page implements OnInit {
   // ############# Loaders 
   // ##########################
   async main_loader() { }
+
+
+  async alert_error(message:any){
+    let alert = await this.alert_ctrl.create({
+      header:'Error',
+      message: message.error || message.message,
+      buttons:[
+        {text:'Ok', role:'cancel'}
+      ]
+    });
+    await alert.present();
+  }
 
 }

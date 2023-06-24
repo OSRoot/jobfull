@@ -75,7 +75,7 @@ export class JopDetailPage implements OnInit {
     formdata.append('FreelancerId',this.freelancer_id);
     formdata.append('ServiceId',this.service_id);
     formdata.append('PaymentTypeId',this.payment_type_id);
-    formdata.append('AttachmentFile',this.attachment_file);
+    // formdata.append('AttachmentFile',this.attachment_file);
     
 
     this.data_service.add_proposal(formdata).subscribe(res=>{

@@ -1,13 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>update-freelancer</ion-title>
+    <ion-title>Update Personal Info</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">update-freelancer</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+
+  <form [formGroup]="update_form" action="" style="margin-top: 50px;">
+    <h1 style="color: #bebebe;">Update your Info</h1>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>First Name</ion-label>
+          <ion-input value="{{fName}}"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label>Last Name</ion-label>
+          <ion-input value="{{lName}}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>User Name</ion-label>
+          <ion-input value="{{username}}"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label>Email Address</ion-label>
+          <ion-input value="{{email}}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    
+        <ion-button color="medium" expand="block" style="width: 30%; margin:auto; margin-top: 50px;">
+          <ion-label>Update Info</ion-label>
+        </ion-button>
+ 
+    
+  </form>
+
 </ion-content>

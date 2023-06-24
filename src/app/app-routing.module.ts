@@ -70,6 +70,10 @@ const routes: Routes = [
     path: 'update-freelancer',
     loadChildren: () => import('./update-freelancer/update-freelancer.module').then( m => m.UpdateFreelancerPageModule)
   },
+  {
+    path: 'add-skill-service',
+    loadChildren: () => import('./add-skill-service/add-skill-service.module').then( m => m.AddSkillServicePageModule)
+  },
 
 
 

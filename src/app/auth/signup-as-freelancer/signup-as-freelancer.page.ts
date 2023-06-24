@@ -79,7 +79,7 @@ export class SignupAsFreelancerPage implements OnInit {
       email: this.email,
       password: this.password
     }
-
+  
     this.data_service.sign_up_freelancer(user).subscribe(async res => {
       console.log(res)
       let freelancer = res;
@@ -238,4 +238,5 @@ export class SignupAsFreelancerPage implements OnInit {
     });
     await alert.present()
   }
+  
 }

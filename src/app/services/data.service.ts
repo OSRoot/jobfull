@@ -8,6 +8,7 @@ import { Observable, take } from 'rxjs';
 const API = 'http://localhost:5106/api/Auth/'
 const API0 = 'http://localhost:5106/api/'
 const API1 = 'http://localhost:5106/api/Freelancer/AddLanExED'
+// const API1 = 'http://localhost:5106/api/Freelancer/EditLanExED/id'
 const STORAGE_KEY = 'MyData'
 
 @Injectable({
@@ -142,7 +143,7 @@ export class DataService {
     // .set('Content-Type', 'multipart/form-data; boundary=--14737809831466499882746641449')
     // .set('Accept', 'Application/json')
 
-    return this.http.put(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
+    return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
   }
 
 
@@ -155,6 +156,20 @@ export class DataService {
 
     // return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form,).pipe(take(1))
   }
+
+  // ########################################################################################
+  // ########################################################################################
+
+
+  // {
+  //   "Skills":[{"name":"Skill1"}],
+  //   "Services":[{"Category":"Service",
+  //                 "SubCategory":"Servicee"}],
+  //   "Languages":[{"LangName":"English", "Level":"native"}],
+  //   "Educations":[{"Degree":"Good", "School":"School", "Description":"ibgprdsgsgdsgsdgsghiabf;aibfaias"}],
+  //   "Experiences":[{"Title":"HTML","Region":"CA", "Company":"Google","Country":"EG", "StartDate":"25/11/1995", "Description":"usabgfu;afasfas"}]
+  // }
+
 
 
   add_ex_edu_ski_serv(body:any){
@@ -171,7 +186,9 @@ export class DataService {
     return this.http.get(`http://localhost:5106/api/Proposal/Get_All`).pipe(take(1))
   }
   add_proposal(proposal:any){
-    return this.http.post('http://localhost:5106/api/Proposal/AddProposal', proposal).pipe(take(1))
+    let headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${this.token}`)
+    return this.http.post('http://localhost:5106/api/Proposal/AddProposal', proposal, {headers}).pipe(take(1))
   }
   update_proposal(proposal: any){
     return this.http.put('http://localhost:5106/api/Proposal/UpadteProposal', proposal).pipe(take(1))
@@ -189,20 +206,29 @@ export class DataService {
   // ########################################################################################
 // Services
 get_one_service(id:any){
-  return this.http.get(`http://localhost:5106/api/Proposal/Get_By_Id?id=${id}`).pipe(take(1))
+  return this.http.get(`http://localhost:5106/api/Service/GETSERVICEBYID?id=${id}`).pipe(take(1))
 }
 get_all_services(){
-  return this.http.get(`http://localhost:5106/api/Proposal/Get_All`).pipe(take(1))
+  return this.http.get(`http://localhost:5106/api/Service/GetAllServices`).pipe(take(1))
 }
-add_service(proposal:any){
-  return this.http.post('http://localhost:5106/api/Proposal/AddProposal', proposal).pipe(take(1))
+add_service(service:any){
+  return this.http.post('http://localhost:5106/api/Service/ADDSERVICE', service).pipe(take(1))
 }
-update_service(proposal: any){
-  return this.http.put('http://localhost:5106/api/Proposal/UpadteProposal', proposal).pipe(take(1))
+update_service(service: any){
+  return this.http.put('http://localhost:5106/api/Service/EDITERVICE', service).pipe(take(1))
 }
 delete_service(id:any){
-  return this.http.delete(`http://localhost:5106/api/Proposal/Delete?id=${id}`).pipe(take(1))
+  return this.http.delete(`http://localhost:5106/api/Service/DELETSERVICE?id=${id}`).pipe(take(1))
 }
 
+
+
+update_freelancer(){
+
+}
+
+get_freelancer_by_id(id:any){
+  return this.http.get(`http://localhost:5106/api/Freelancer/GetAllById?id=${id}`)
+}
 
 }

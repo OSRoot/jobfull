@@ -43,6 +43,10 @@
         <h1>{{fullname}}</h1>
         <h5>University of Engineering</h5>
         <p>Email: {{email}}</p>
+        <ion-item lines="none" style="--background: transparent;">
+          <img src="../../assets/egypt.png" alt="" style="width: 60px; height: 50px; padding-right: 10px;">
+          <ion-label style="color: #bebebe; font-weight: 800;">{{country}}</ion-label>
+        </ion-item>
       </div>
     
     </div>
@@ -64,7 +68,7 @@
         <ion-button
           style="--background: #5954d3"
           shape="round"
-          (click)="Show_Profile_Editor=1"
+          (click)="show_add_service=1"
         >
           <ion-label>Add Service</ion-label>
           <ion-icon name="hammer-outline"  style="color: #5075d5"></ion-icon>
@@ -77,12 +81,13 @@
       </div>
       <!-- _________________________________________________ -->
     </div>
+    
     <!-- _________________________________________________ -->
-    <div class="education">
-      <h1>
+    <div class="myexperience">
+      <h2 class="">
         <ion-icon name="school-outline"></ion-icon>
-        Education
-      </h1>
+        Education And About me
+      </h2>
       <ion-buttons slot="end">
         <ion-button (click)="Show_Profile_Editor=1">
           <ion-icon
@@ -93,27 +98,121 @@
         </ion-button>
       </ion-buttons>
 
-      <div class="schools">
-        <div class="school" *ngFor="let school of education">
-          <div>
-            <h2>School</h2>
-            <h5>{{school.school}}</h5>
-            <h2>Degree</h2>
-            <h5 >{{school.degree}}</h5>
-            <h2>Field of Study</h2>
-            <h5>{{school.fieldofstudy}}</h5>
-          </div>
-          <div>
-            <h2>Start Date</h2>
-            <h5>{{school.datefrom}}</h5>
-            <h2>End Date</h2>
-            <h5>{{school.dateto}}</h5>
-          </div>
+      <!-- _________________________________________________ -->
+
+      <div class="Educations">
+        <!-- _________________________________________________ -->
+        <div class="edu">
+    <ion-row>
+      <ion-col>
+        <ion-row>
+
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">School</ion-label>
+            <h4>School</h4>
+            </ion-item>
+          </ion-col>
+        
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Degree</ion-label>
+            <h4>Good</h4>
+            </ion-item>
+          </ion-col>
+          
+
+        </ion-row>
+      
+        <ion-row>
+          
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Field of Study</ion-label>
+            <h4>Engineering</h4>
+            </ion-item>
+          </ion-col>
+        
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <h4>Good</h4>
+            </ion-item>
+          </ion-col>
+          
+        </ion-row> 
+
+        <ion-row>
+          
+          
+
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Start Date</ion-label>
+            <h4>00-00-2023</h4>
+            </ion-item>
+          </ion-col>
+        
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">End Date</ion-label>
+            <h4>00-00-2023</h4>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      
+      </ion-col>
+      
+      <ion-col>
+        <ion-row>
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Hourly Rate</ion-label>
+            <div class="" style="display: flex; justify-content: center; align-items: center;">
+              <img src="../../assets/hourl-rate.svg" alt="">
+            <h6 style="color: #bebebe; padding-left: 10px; font-weight: 800;">{{hourlyrate}} $</h6>
+            </div>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">My Rating</ion-label>
+            <div class="" style="display: flex; justify-content: center; align-items: center;">
+              <img src="../../assets/hourly_worked.svg" alt="">
+            <h6 style="color: #bebebe; padding-left: 10px; font-weight: 800;">{{rating}} hrs</h6>
+            </div>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">Bio</ion-label>
+            <h4>{{bio}}</h4>
+            </ion-item>
+          </ion-col>      
+        </ion-row>
+
+        <ion-row>
+          <ion-col>  
+            <ion-item>
+            <ion-label position="stacked">OverView</ion-label>
+            <h4>{{overview}}</h4>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        
+        
+      </ion-col>
+    </ion-row>    <!-- _________________________________________________ -->
         </div>
       </div>
     </div>
-
-    <!-- _________________________________________________ -->
+        <!-- _____<____________________________________________ -->
 
     <!-- _________________________________________________ -->
     <div class="myexperience">
@@ -136,8 +235,8 @@
       <div class="experiences">
         <!-- _________________________________________________ -->
         <div class="experience">
-          <ion-row>
-            <ion-col>
+    <ion-row>
+      <ion-col>
               <ion-item lines="none" style="--background: #292B3A;">
                 <ion-label position="stacked">Title</ion-label>
                 <h4>FrontEnd Developer</h4>
@@ -312,28 +411,181 @@
   <div class="form ion-text-center ion-padding" *ngIf="Show_Profile_Editor" >
     <h2 style="color: #5075d5;">Edit Profile</h2>
   
-    <form  action="">
+    <form  [formGroup]="form_data" action="">
       <div class="edu">
   
         <ion-row>
           <ion-col>
-            <ion-item class="item">
+            <ion-item class="item"  style="--background: #6d6d6d;">
+              <ion-label position="stacked">Title</ion-label>
+              <ion-input  type="text" [clearInput]="true" [(ngModel)]="udateTitle" formControlName="udateTitle"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">OverView</ion-label>
+            <ion-input  type="text" [clearInput]="true" [(ngModel)]="udateOverview" formControlName="udateOverview"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="item"  style="--background: #6d6d6d;">
+              <ion-label position="stacked">Bio</ion-label>
+              <ion-input  type="text"  [clearInput]="true" [(ngModel)]="udateBio" formControlName="udateBio"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">Country</ion-label>
+            <ion-input   type="text" [clearInput]="true" [(ngModel)]="udateCountry" formControlName="udateCountry"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="item"  style="--background: #6d6d6d;">
+              <ion-label position="stacked">City</ion-label>
+              <ion-input  type="text"  [clearInput]="true" [(ngModel)]="udateCity" formControlName="udateCity"></ion-input>
+          </ion-item >
+        </ion-col>
+        
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">Street</ion-label>
+            <ion-input  type="text"  [clearInput]="true" [(ngModel)]="udateStreet" formControlName="udateStreet"></ion-input>
+        </ion-item >
+      </ion-col>
+
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">Phone Number</ion-label>
+            <ion-input   type="text" [clearInput]="true" [(ngModel)]="udatePhoneNumber" formControlName="udatePhoneNumber"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="item"  style="--background: #6d6d6d;">
+              <ion-label position="stacked">Hourly Rate (USD)</ion-label>
+              <ion-input  type="number"  [clearInput]="true" [(ngModel)]="udateHourlyRate" formControlName="udateHourlyRate"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">Rating</ion-label>
+            <ion-input  type="number" [clearInput]="true" [(ngModel)]="udateRating" formControlName="udateRating"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="item"  style="--background: #6d6d6d;">
+              <ion-label position="stacked">Photp</ion-label>
+              <ion-input (change)="ion_change_photo($event)" type="file"  [clearInput]="true" [(ngModel)]="udatePhoto" formControlName="udatePhoto"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item"  style="--background: #6d6d6d;">
+            <ion-label position="stacked">Cv</ion-label>
+            <ion-input (change)="ion_change_photo($event)"  type="file" [clearInput]="true" [(ngModel)]="udateCv" formControlName="udateCv"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+        
+  
+      <ion-button [disabled]="form_data.invalid" (click)="update_freelancer()" color="success" expand="block" style="width: 50%; margin: auto;">
+        Submit
+      </ion-button>
+    </div>
+    </form>
+  </div>
+  
+
+
+
+
+
+
+
+  
+  <div *ngIf="show_add_service" class="the-form" (click)="show_add_service=0">
+
+    
+  </div>
+
+
+  <div class="form ion-text-center ion-padding" *ngIf="show_add_service" >
+    <h2 style="color: #5075d5;">Add Service</h2>
+  
+    <form  action="">
+      <div class="edu">
+  
+        
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
+              <ion-label position="stacked">Title</ion-label>
+              <ion-input  type="number"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item" style="--background: #6d6d6d;">
+            <ion-label position="stacked">Description</ion-label>
+            <ion-input  type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
+              <ion-label position="stacked">Title</ion-label>
+              <ion-input  type="number"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item" style="--background: #6d6d6d;">
+            <ion-label position="stacked">Description</ion-label>
+            <ion-input  type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
               <ion-label position="stacked">Payment Amount $:</ion-label>
               <ion-input  type="number"></ion-input>
           </ion-item >
         </ion-col>
          
         <ion-col>
-          <ion-item class="item">
+          <ion-item class="item" style="--background: #6d6d6d;">
             <ion-label position="stacked">Delivery time (Days):</ion-label>
             <ion-input  type="number"></ion-input>
           </ion-item>
         </ion-col>
         </ion-row>
+
+
         <ion-row>
   
         <ion-col>
-          <ion-item class="item">
+          <ion-item style="--background: #6d6d6d;" class="item">
             <ion-label position="stacked">Description:</ion-label>
             <ion-input  type="text"></ion-input>
           </ion-item>
@@ -347,53 +599,8 @@
     </div>
     </form>
   </div>
-  
 
 
-  <div *ngIf="Show_Profile_Editor" class="the-form" (click)="Show_Profile_Editor=0">
-
-    
-  </div>
-
-
-  <div class="form ion-text-center ion-padding" *ngIf="Show_Profile_Editor" >
-    <h2 style="color: #5075d5;">Edit Education Experience Skills Languages Services</h2>
-  
-    <form  action="">
-      <div class="edu">
-  
-        <ion-row>
-          <ion-col>
-            <ion-item class="item">
-              <ion-label position="stacked">School</ion-label>
-              <ion-input  type="text"></ion-input>
-          </ion-item >
-        </ion-col>
-         
-        <ion-col>
-          <ion-item class="item">
-            <ion-label position="stacked">Delivery time (Days):</ion-label>
-            <ion-input  type="number"></ion-input>
-          </ion-item>
-        </ion-col>
-        </ion-row>
-        <ion-row>
-  
-        <ion-col>
-          <ion-item class="item">
-            <ion-label position="stacked">Description:</ion-label>
-            <ion-input  type="text"></ion-input>
-          </ion-item>
-        </ion-col>
-  
-      </ion-row>
-  
-      <ion-button (click)="update_edu_ex_lang_ski_ser()" color="success" expand="block" style="width: 50%; margin: auto;">
-        Submit
-      </ion-button>
-    </div>
-    </form>
-  </div>
 
   
 </ion-content>

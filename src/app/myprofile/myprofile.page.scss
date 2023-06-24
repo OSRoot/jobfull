@@ -369,11 +369,24 @@ ion-item{
    
     }
     ion-row{
-        margin-top: 20px;
+        margin-top: 10px;
         padding-left: 20px;
         padding-right: 20px;
         ion-col{
+            ion-label{
+                font-weight: 800;
+                color: #BEBEBE;
+            }
             ion-item{
+                h4{
+                    color: #fff;
+                }
+                ion-label{
+                    color: #BEBEBE;
+                    font-weight: 8000;
+                }
+                --background: #292B3A;
+                ;
                 border-radius: 10px;
             }
         }
