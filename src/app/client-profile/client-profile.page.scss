@@ -1,0 +1,401 @@
+
+ion-content{
+    // --padding-top: 30px;
+}
+ion-toolbar{
+    --background:#131524
+}
+ion-item{
+    --background:#292B3A
+}
+.ionitem{
+    --background: transparent;
+}
+.main-content{
+    @media (max-width:1500px){
+        // width: 150vh;
+
+    }
+    // width: 100vh;
+    margin: auto;
+    // height: calc(100vh - 90px);
+    background-color: #131524;
+    // border-radius: 15px;
+    padding-top: 20px;
+
+  
+.profile-header{
+    @media (max-width:768px){
+        width: 100%;       
+    }
+    @media (max-width:768px){
+        display: flex;
+        flex-direction: column;
+
+
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    .image{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        @media (max-width:768px){
+            width: 100%;       
+        }
+        div:nth-child(1){
+            @media (max-width:768px){
+                width: 100px;       
+                height: 100px;       
+            }
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+    .info{
+        color: #BEBEBE;
+        // width: 55%;
+        
+        h5, h1,p{
+            border-bottom: 1px solid #BEBEBE;
+            // border-bottom-width: 100px;
+            padding: 5px;
+            // width: 40%;
+        }
+
+    }
+}
+
+    .education{
+        
+        width: 90%;
+        margin: auto;
+        // border-bottom: 1px solid rgb(206, 206, 206);
+
+        @media (max-width: 768px){
+            display: flex;
+            flex-direction: column;
+        }
+        // display: flex;
+        padding-top: 0;
+        margin-top: 0;
+        H1{
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        ion-icon{
+            margin-right:  10px; ;
+        }
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: 800;
+            color: #5075d5;
+            @media (max-width: 768px){
+                display: flex;
+                // flex-direction: column;
+            }  
+            
+        }
+        // background-color: antiquewhite;
+        .schools{
+            background-color: #131524;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            // padding-left: 50px;
+            // background: #292B3A;
+            gap: 15px;
+            
+            .school{
+                display: flex;
+                justify-content: space-between;
+                // align-items: center;
+                background-color: #BEBEBE;
+                padding: 20px;
+                border-radius: 15px;
+                ion-card{
+                    @media (max-width: 768px){
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        text-align: center;
+                    // width: 100%;
+
+                    }  
+                    background: #292B3A;
+                    width: 1000px;
+                    margin: auto;
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    ion-card-title{
+                        color:#5954D3;
+                    }
+                    ion-card-header{
+                        h3, h4{
+                            color: #BEBEBE;
+                        }
+                    }
+                    div{
+                        width:200px;
+                        // height: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .myexperience{
+        width: 90%;
+        margin: auto;
+        // background-color: antiquewhite;
+        // border-bottom: 1px solid rgb(206, 206, 206);
+        @media (max-width: 768px){
+            // display: flex;
+            // flex-direction: column;
+            padding-top: 50px;
+        }
+        H2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            ion-icon{
+                margin-right:  10px; ;
+            }
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: 800;
+            color: #5075d5;
+            @media (max-width: 768px){
+                display: flex;
+                // flex-direction: column;
+            }   
+            
+        }
+        .experiences{
+            .experience{
+                ion-row{
+                    height: 110px;
+
+                    ion-col{
+                        ion-item{
+                            --border-radius: 15px ;
+                            h4{
+                                color: #fff;
+                            }
+                        }
+                        margin: auto;
+                        ion-label{
+                            font-weight: 800;
+                            color: #BEBEBE;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+    .langs{
+        width: 90%;
+        margin: auto;
+
+        // border-bottom: 1px solid rgb(206, 206, 206);
+
+        H2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            ion-icon{
+                margin-right:  10px; ;
+            }
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            text-align: center;
+            font-weight: 800;
+            color: #5075d5;
+            @media (max-width: 768px){
+                display: flex;
+                // flex-direction: column;
+            }
+        }
+        .languages{
+            .language{
+                ion-row{
+                    ion-col{
+                        ion-item{
+                            border-radius: 10px;
+                            h4{
+                                color: #fff;
+                            }
+                        }
+                        ion-label{
+                            font-weight: 800;
+                            color: #BEBEBE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .myskills{
+        width: 90%;
+        margin: auto;
+
+        // border-bottom: 1px solid rgb(206, 206, 206);
+        H2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            ion-icon{
+                margin-right:  10px; ;
+            }
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            font-weight: 800;
+            color: #5075d5;
+            @media (max-width: 768px){
+                display: flex;
+                // flex-direction: column;
+            }  
+            
+            
+        }
+        .skills{
+            .skill{
+                ion-row{
+                    ion-col{
+                        ion-item{
+                            border-radius: 15px;
+                            h4{
+                                color: #fff;
+                            }
+                            ion-label{
+                                font-weight: 800;
+                                color: #BEBEBE;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .myservices{
+        width: 90%;
+        margin: auto;
+
+        // border-bottom: 1px solid rgb(206, 206, 206);
+        H2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            ion-icon{
+                margin-right:  10px; ;
+            }
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            font-weight: 800;
+            color: #5075d5;
+            @media (max-width: 768px){
+                display: flex;
+                // flex-direction: column;
+            }   
+            
+        }
+    }
+
+
+
+}
+
+
+.the-form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;   
+    background: rgba(0, 0, 0 , 0.5);
+    z-index: 999;
+    
+    
+    
+   }
+   .form{
+    // ion-button{
+        // margin-top: 50   px;
+    // }
+       background: #292B3A;
+       position: fixed;
+       z-index: 9999;
+       top: 10%;
+       right: 10%;
+       left: 10%;
+       bottom: 10%;
+       border-radius: 5px;
+   
+       overflow: scroll;
+   
+       .edu{
+           border: 2px solid #292B3A;
+           padding-left: 20px;
+           padding-right: 20px;
+           height: 250px;
+       }
+  
+   
+    }
+    ion-row{
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        ion-col{
+            ion-label{
+                font-weight: 800;
+                color: #BEBEBE;
+            }
+            ion-item{
+                h4{
+                    color: #fff;
+                }
+                ion-label{
+                    color: #BEBEBE;
+                    font-weight: 8000;
+                }
+                --background: #292B3A;
+                ;
+                border-radius: 10px;
+            }
+        }
+       }
+  
+  .item{
+    --background: #fff;
+  }
+
+  .form{
+
+  }

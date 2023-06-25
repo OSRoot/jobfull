@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-jobs',
@@ -12,32 +13,50 @@ export class JobsPage implements OnInit {
   no_proposals =false
   show_edit_proposal=0
   jobs:any = [];
-
-
+  my_proposals:any = []
   payment_amount:any
-  delivery_time!:any
+  delivery_time:any
   description!:string;
   attachment_file!:File;
-  service_id:any=10;
+  service_id:any;
   status:any = 0;
   payment_type_id:any=1;
-  freelancer_id:any = 18;
-
+  freelancer_id:any;
+  service_title!:string
   proposal_form!:FormGroup
   
   proposal!:FormData
   constructor(
     private data_service:DataService,
-    private alert_ctrl:AlertController
+    private alert_ctrl:AlertController,
+    private storage:Storage
   ) { }
 
   ngOnInit() {
+    this.storage.get('FreeLancer').then(res=>{
+      this.freelancer_id = res.id
+    })
+    this.storage.get('SERVICES').then(res=>{
+      console.log(res);
+      for (let service of res){
+        // console.log(service);
+      }
+    })
+    this.storage.get('PROPOSALS').then(res=>{
+        console.log(`propos`,res);
+        this.service_id=res.data.serviceId
+        console.log(`Service id`+this.service_id);
+    this.get_service_via_propo()
+      
+      
+  })
     this.proposal_form = new FormGroup({
       payment_amount:new FormControl('', Validators.required),
       delivery_time:new FormControl('', Validators.required),
       description:new FormControl('', Validators.required),
       // :new FormControl('', Validators.required),
-    })
+    });
+    this.get_proposals()
   }
 
   ion_change_attach(event:any){
@@ -46,35 +65,29 @@ export class JobsPage implements OnInit {
 
 
   update_proposal(){
-    const formdata = new FormData();
-    formdata.append('payment_amount',this.payment_amount);
-    formdata.append('delivery_time',this.delivery_time);
-    formdata.append('Descripion',this.description);
-    formdata.append('status',this.status);
-    formdata.append('FreelancerId',this.freelancer_id);
-    formdata.append('ServiceId',this.service_id);
-    formdata.append('PaymentTypeId',this.payment_type_id);
-    formdata.append('AttachmentFile',this.attachment_file);
-    
-
-    this.data_service.update_proposal(formdata).subscribe(res=>{
-      console.log(res);
-      return
-    },async err =>{
-      console.log(err);
-      let alert_error = await this.alert_ctrl.create({
-        header:`Cannot Submit Proposal`,
-        message:`Code: ${err.status},
-                 Status: ${err.error.status}
-                 Message: ${err.error.message}`,
-        buttons:[
-          {text:'Edit again', role:'cancel'}
-        ]
-      });
-      await alert_error.present()
-      return
-      
-    })
 
   }
+
+  get_proposals(){
+    this.data_service.get_all_proposals().subscribe((res:any)=>{
+      
+      this.my_proposals = res.data
+      
+      for (let prop of this.my_proposals){
+        if (1){}
+      }
+
+    })
+  }
+
+  get_service_via_propo(){
+    console.log(`SERVICE ID `+this.service_id);
+    
+    this.data_service.get_one_service(this.service_id).subscribe((res:any)=>{
+      console.log(res);
+      this.service_title=res.data.title
+      
+    })
+  }
+
 }

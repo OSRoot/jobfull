@@ -3,6 +3,15 @@
     <ion-title style="color: #5075d5; font-size: x-large; font-weight: 900"
       >Jobful</ion-title
     >
+    <ion-buttons slot="end">
+      <ion-button routerLink="/myhome">
+        <ion-label color="primary">Home</ion-label>
+      </ion-button>
+
+      <ion-button routerLink="/myprofile">
+        <ion-label color="primary">Profile</ion-label>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding ion-text-center ion-align-items-center">
@@ -16,7 +25,7 @@
           margin-bottom: 20px;
         "
       >
-        Complete Your Personal Information
+        Your Personal Information
       </h1>
       <form
         [formGroup]="form_data"

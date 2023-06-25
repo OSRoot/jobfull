@@ -32,7 +32,7 @@ export class ChoosePage implements OnInit {
 
   get_role(event: any) {
     const role = event.target.value;
-    if (role === 'client') {
+    if (role === 'Client'||'client') {
       this.is_disabled_freelancer = true;
       this.is_disabled_client = false
     }

@@ -1,0 +1,261 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-title style="color: antiquewhite" class="ion-text-center"
+      >Profile</ion-title
+    >
+    <ion-buttons slot="start">
+      <ion-button routerLink="/myhome" routerDirection="back">
+        <ion-icon
+          name="home"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5; font-weight: 800;"
+          >Jobful</ion-label
+        >
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/myhome" routerDirection="back">
+        <ion-icon
+          name="home"
+          style="padding-right: 3px; color: #5075d5"
+        ></ion-icon>
+        <ion-label style="text-transform: none; color: #5075d5"
+          >Home</ion-label
+        >
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- ION CONTENT START -->
+<ion-content class="ion-no-padding">
+  <!-- DEV MAIN -->
+  <div class="main-content">
+    <!-- _________________________________________________ -->
+    <div class="profile-header">
+     
+    <div class="image">
+      <div>
+        <img src="../../assets/profile.png" alt="">
+      </div>
+    
+      <div class="info">
+        <h1>Name</h1>
+        <h5>University of Engineering</h5>
+        <p>Email: Emali@cc.vom</p>
+        <ion-item lines="none" style="--background: transparent;">
+          <img src="../../assets/egypt.png" alt="" style="width: 60px; height: 50px; padding-right: 10px;">
+          <ion-label style="color: #bebebe; font-weight: 800;">efdsa</ion-label>
+        </ion-item>
+      </div>
+    
+    </div>
+
+    
+    
+      <!-- _________________________________________________ -->
+
+      <div class="profile-btns">
+        <ion-button
+          style="--background: #5954d3"
+          shape="round"
+          routerLink="/stage01"
+          (click)="Show_Profile_Editor=0"
+        >
+          <ion-label>Edit</ion-label>
+          <ion-icon name="create-outline" style="color: #5075d5"></ion-icon>
+        </ion-button>
+
+        <ion-button
+          style="--background: #5954d3"
+          shape="round"
+          (click)="show_add_service=1"
+        >
+          <ion-label>Add Service</ion-label>
+          <ion-icon name="hammer-outline"  style="color: #5075d5"></ion-icon>
+        </ion-button>
+
+        <!-- <ion-button color="warning" shape="round" (click)="Show_Profile_Editor=1">
+          <ion-label>Share Profile</ion-label>
+          <ion-icon name="share-outline" ></ion-icon>
+        </ion-button> -->
+      </div>
+      <!-- _________________________________________________ -->
+    </div>
+    
+    <!-- _________________________________________________ -->
+    <div  class="myexperience" >
+      <h2 class="">
+        <ion-icon name="school-outline"></ion-icon>
+        Education And About me
+      </h2>
+      <ion-buttons slot="end">
+        <ion-button >
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <!-- _________________________________________________ -->
+
+      
+        <!-- _____<____________________________________________ -->
+
+    <!-- _________________________________________________ -->
+   
+    <!-- _________________________________________________ -->
+
+   
+    <!-- _________________________________________________ -->
+
+   
+    <!-- _________________________________________________ -->
+
+    <div   class="myservices">
+      <h2>
+        <ion-icon name="server-outline"></ion-icon>
+        Services
+      </h2>
+
+      <!-- <ion-buttons slot="end">
+        <ion-button (click)="show_add_edu=1">
+          <ion-icon
+            name="create-outline"
+            slot="icon-only"
+            style="color: #5075d5"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+
+      <div class="services">
+        <div class="service">
+          <ion-row>
+            <ion-col>
+              <ion-item style="--background: #292B3A;">
+                <ion-label position="stacked" style="color: #bebebe; font-weight: 800;">Service</ion-label>
+                <h4 style="color: #fff;">Backend</h4>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item style="--background: #292B3A;">
+                <ion-label position="stacked" style="color: #bebebe; font-weight: 800;">Service</ion-label>
+                <h4 style="color: #fff;">FrontEnd</h4>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </div>
+    <!-- _________________________________________________ -->
+
+    <!-- ION CONTENT MAIN DEV -->
+  </div>
+  <!-- ION CONTENT ENDING -->
+
+
+
+
+
+
+
+
+  
+  <div *ngIf="show_add_service" class="the-form" (click)="show_add_service=0">
+
+    
+  </div>
+
+
+  <div class="form ion-text-center ion-padding" *ngIf="show_add_service" >
+    <h2 style="color: #5075d5;">Add Service</h2>
+  
+    <form  action="" style="margin-top: 30px;">
+      <div class="edu">
+  
+        
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
+              <ion-label position="stacked">Title</ion-label>
+              <ion-input  type="text"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item" style="--background: #6d6d6d;">
+            <ion-label position="stacked">Description</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
+              <ion-label position="stacked">Payment Amount (USD)</ion-label>
+              <ion-input  type="number"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item" style="--background: #6d6d6d;">
+            <ion-label position="stacked">Location</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: #6d6d6d;" class="item">
+              <ion-label position="stacked">Post Date</ion-label>
+              <ion-input  type="date"></ion-input>
+          </ion-item >
+        </ion-col>
+         
+        <ion-col>
+          <ion-item class="item" style="--background: #6d6d6d;">
+            <ion-label position="stacked">Level</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+  
+        <ion-col>
+          <ion-item style="--background: #6d6d6d;" class="item">
+            <ion-label position="stacked">Payment Type:</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        
+        <ion-col>
+          <ion-item style="--background: #6d6d6d;" class="item">
+            <ion-label position="stacked">Service Skill</ion-label>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+  
+      <ion-button (click)="add_service()" color="success" expand="block" style="width: 50%; margin: auto; margin-top: 50px;">
+        Submit
+      </ion-button>
+    </div>
+  </form>
+  </div>
+
+
+
+
+  
+  
+
+
+ 

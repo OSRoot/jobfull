@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.module').then(m => m.MessagesPageModule)
-  },  {
+  },
+  {
     path: 'jobs',
     loadChildren: () => import('./jobs/jobs.module').then( m => m.JobsPageModule)
   },
@@ -63,7 +64,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-edu/add-edu.module').then( m => m.AddEduPageModule)
   },
   {
-    path: 'jop-detail',
+    path: 'jop-detail/:id',
     loadChildren: () => import('./jop-detail/jop-detail.module').then( m => m.JopDetailPageModule)
   },
   {
@@ -74,6 +75,19 @@ const routes: Routes = [
     path: 'add-skill-service',
     loadChildren: () => import('./add-skill-service/add-skill-service.module').then( m => m.AddSkillServicePageModule)
   },
+  {
+    path: 'proposal',
+    loadChildren: () => import('./proposal/proposal.module').then( m => m.ProposalPageModule)
+  },
+  {
+    path: 'client-profile',
+    loadChildren: () => import('./client-profile/client-profile.module').then( m => m.ClientProfilePageModule)
+  },
+  {
+    path: 'edit-proposal/:id',
+    loadChildren: () => import('./edit-proposal/edit-proposal.module').then( m => m.EditProposalPageModule)
+  },
+
 
 
 

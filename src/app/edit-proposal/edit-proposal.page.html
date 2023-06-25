@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Edit Proposal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+
+    
+
+<div class="form ion-text-center ion-padding">
+  <h2 style="color: #5075d5;">ReSubmit Your Proposal</h2>
+
+  <form [formGroup]="proposal_form" action="">
+    <div class="edu">
+
+      <ion-row class="ion-padding">
+        <ion-col class="">
+          <ion-item>
+            <ion-label position="stacked">Payment Amount $:</ion-label>
+            <ion-input [(ngModel)]="payment_amount" formControlName="payment_amount" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+       
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Delivery time (Days):</ion-label>
+          <ion-input [(ngModel)]="delivery_time" formControlName="delivery_time" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+      </ion-row>
+      <ion-row class="ion-padding">
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Description:</ion-label>
+          <ion-input [(ngModel)]="description" formControlName="description" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Attach File (optional):</ion-label>
+          <ion-input (change)="ion_change_attach($event)" type="file"></ion-input>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+
+    <ion-button class="ion-padding" (click)="update_proposal()" color="success" expand="block" style="width: 50%; margin: auto;" [disabled]="proposal_form.invalid">
+      Submit
+    </ion-button>
+    
+  </div>
+  </form>
+
+
+</div>
+</ion-content>

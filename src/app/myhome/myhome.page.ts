@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-myhome',
   templateUrl: './myhome.page.html',
@@ -11,49 +12,8 @@ export class MyhomePage implements OnInit {
 
   username: any
 
-  work_list = [
-    {
-      title: 'Python',
-      image: '../../assets/work.avif',
-      desc: 'AI Algorithim'
-    },
-    {
-      title: 'Javascript',
-      image: '../../assets/work.avif',
-      desc: 'Web development'
-    }, {
-      title: 'Typescript',
-      image: '../../assets/work.avif',
-      desc: 'Web'
-    }, {
-      title: 'Angular',
-      image: '../../assets/work.avif',
-      desc: 'Web Framework'
-    }, {
-      title: 'React',
-      image: '../../assets/work.avif',
-      desc: 'Framework'
-    },
-  ]
 
-  activity_list = [
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
-    {
-      title: 'Osroot',
-      image: '../../assets/work.avif',
-      job: 'Full stack developer'
-    },
-    
-  ]
+ 
   // ###################################################
 
   constructor(
@@ -61,19 +21,39 @@ export class MyhomePage implements OnInit {
     private router: Router,
     private modal_ctrl: ModalController,
     private alert_ctrl: AlertController,
+    private data_service: DataService
 
   ) {
     this.kick_to_login()
+    this.get_all_jobs()
   }
   // ###################################################
 
   ngOnInit() {
     this.username = localStorage.getItem('username')
+    this.get_all_jobs()
+  
   }
 
   // ###################################################
 
-  go_myprofile() { }
+  go_myprofile() {
+
+    this.storage.get('FreeLancer').then(res=>{
+      if (res){
+        if (res.user.roleName==='freelancer'||res.user.roleName==='Freelancer'){
+          this.router.navigate(['myprofile'])
+        return
+        }
+        if(res.user.roleName==='client'||res.user.roleName==='Client'){
+          this.router.navigate(['client-profile'])
+        }
+      }
+      
+    })
+
+   }
+
   // ###################################################
 
   kick_to_login() {
@@ -133,5 +113,26 @@ export class MyhomePage implements OnInit {
   }
 
   // ###################################################
+
+  services:any = []
+  service_id :any
+  
+  get_all_jobs(){
+    this.data_service.get_all_services().subscribe((res:any)=>{
+      this.storage.set('SERVICES', res.data)
+      // alert('Done')
+      this.services = res.data
+    },err=>{
+      alert(err)
+    })
+  }
+
+
+
+get_all_proposals(){
+  this.data_service.get_all_proposals().subscribe((res:any)=>{
+    this.storage.set('PROPOSALS', res.data)
+  })
+}
 
 }

@@ -19,83 +19,60 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-    <h2 style="border-bottom: 1px solid #ebebeb" class="jop-title">
-      Front End Developer
-    </h2>
-    <div class="detail">
-      <h4>Web Developer</h4>
-      <div style="border-bottom: 1px solid #ebebeb" class="info">
-        <span style="color: gray">4 month</span>
-        <span style="color: gray">
-          <ion-icon name="location-outline"></ion-icon>
-          <span style="color: #bebebe">Cairo</span>
-        </span>
-        <p style="color: gray">2 Replied Requests</p>
-      </div>
-    </div>
-    <div style="border-bottom: 1px solid #ebebeb" class="qulified">
-      <p>I Need a Goog Front End Developer Who has +4 Years experience</p>
-    </div>
+  
 
-    <div class="requirements">
-      <div>
-        <h4>2 days Master card</h4>
-        <p>Lorem ipsum dolor sit.</p>
-      </div>
-      <div>
-        <h4>3 Years</h4>
-        <p>Experience</p>
-      </div>
-      <div>
-        <h4>1-3 Month</h4>
-        <p>Duration</p>
-      </div>
-      <div>
-        <h4>15$</h4>
-        <p>Hourly</p>
-      </div>
-    </div>
+  <div class="container" >
+    <ion-row>
+      <ion-col >
+        
+          <ion-card style="display: flex; align-items: center; justify-content: space-around;  --background: #6d6d6d;" class="ion-text-center  ion-display-flex">
 
-    <div class="skills">
-      <h3>Skills</h3>
-      <div class="skills-inner">
-        <span>Html</span>
-        <span>Css</span>
-        <span>React</span>
-        <span>Sass</span>
-        <span>Bootstrap</span>
-        <span>Github</span>
-        <span>Redux</span>
-      </div>
-    </div>
+            <div class="img ion-padding">
+              <img src="../../assets/egypt.png" alt="" style="width: 150px;">
+            
+              <div class="skills">
+                <ion-item *ngFor="let skill of service_skills">
+                  <div class="">
+                    <h4>Required Skills</h4>
+                    <div class="">
+                      <ion-chip>{{skill.name}}</ion-chip>
+                      <ion-chip>{{skill.name}}</ion-chip>
+                    </div>
+                  </div>
+                </ion-item>
+              </div>
+            </div>
+            <div class=" ion-padding-100">
+              
+            <ion-card-title>
+              <h1 style="color: #fff;">
+                {{service.title}}
+              </h1>
+            </ion-card-title>
+            <ion-card-title>{{service.description}}</ion-card-title>
+            <ion-card-subtitle style="color: #5075d5; font-weight: 800;" class="ion-padding-top">Location: {{service.location}}</ion-card-subtitle>
+            <h4 class="ion-padding-top" style="color: #bebebe;">Payment Amount: {{service.payment_amount}} $</h4>
+            <h5 class="ion-padding-top" style="color: #bebebe;">Payment Method: <span style="color: red; font-weight: 900;">Vodafone Cash</span></h5>
+            </div>
+          </ion-card>
 
-    <div class="activity">
-      <h2>Activity on This Jop</h2>
-      <div>
-        <span>Proposals :</span>
-        <span>5</span>
-      </div>
-      <div>
-        <span>Interviewing :</span>
-        <span>4</span>
-      </div>
-    </div>
-    <div class="client activity">
-      <h2>About Payment</h2>
-      <div>
-        <span>Country :</span>
-        <span>Egypt</span>
-      </div>
-      <div>
-        <span>Time :</span>
-        <span>01:44/2023:06:01</span>
-      </div>
-    </div>
-
-    <button (click)="Show_proposal=1">Send a Proposal</button>
+          <ion-row>
+            <ion-col style="display: flex; justify-content: center; align-items: center;">
+              <ion-button color="warning" (click)="Show_proposal=1">
+              <ion-label >
+                Submit Proposal
+              </ion-label>
+              <ion-icon name="send-outline"></ion-icon>
+              </ion-button >
+              <ion-button color="medium" routerLink="/jobs">
+                View My Proposals
+              </ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      
+    </ion-row>
   </div>
-
 
   
   <div *ngIf="Show_proposal" class="the-form" (click)="Show_proposal=0">

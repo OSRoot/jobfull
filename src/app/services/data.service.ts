@@ -143,7 +143,7 @@ export class DataService {
     // .set('Content-Type', 'multipart/form-data; boundary=--14737809831466499882746641449')
     // .set('Accept', 'Application/json')
 
-    return this.http.post(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
+    return this.http.put(`${API0}Freelancer/AddFreelancer`, freelancer_form, { headers }).pipe(take(1))
   }
 
 
@@ -161,21 +161,14 @@ export class DataService {
   // ########################################################################################
 
 
-  // {
-  //   "Skills":[{"name":"Skill1"}],
-  //   "Services":[{"Category":"Service",
-  //                 "SubCategory":"Servicee"}],
-  //   "Languages":[{"LangName":"English", "Level":"native"}],
-  //   "Educations":[{"Degree":"Good", "School":"School", "Description":"ibgprdsgsgdsgsdgsghiabf;aibfaias"}],
-  //   "Experiences":[{"Title":"HTML","Region":"CA", "Company":"Google","Country":"EG", "StartDate":"25/11/1995", "Description":"usabgfu;afasfas"}]
-  // }
-
-
 
   add_ex_edu_ski_serv(body:any){
     return this.http.post(`${API0}Freelancer/AddLanExED`,body).pipe(take(1));
   }
 
+  update_ex_edu_ski_serv(body:any, id:any){
+    return this.http.put(`http://localhost:5106/api/Freelancer/EditLanExED/${id}`,body).pipe(take(1))
+  }
   // ########################################################################################
   // ########################################################################################
 // Proposals

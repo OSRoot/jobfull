@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular';
 import { DataService } from '../services/data.service';
 import { AlertController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-jop-detail',
@@ -11,32 +12,40 @@ import { AlertController } from '@ionic/angular';
 })
 export class JopDetailPage implements OnInit {
 
+  payment_type:string='';
   Show_proposal = 0
   payment_amount:any
-  delivery_time!:any
+  delivery_time:any
   description!:string;
   attachment_file!:File;
-  service_id:any=10;
-  status:any = 0;
+  service_id:any=0;
+  status:any = 1;
   payment_type_id:any=1;
-  freelancer_id!:string;
-
+  freelancer_id:any=0;
+  client_id:number =1 
   proposal_form!:FormGroup
+  service:any = {};
+  service_skills:any = []
   
   proposal!:FormData
     constructor(
     private storage:Storage,
     private data_service:DataService,
     private alert_ctrl : AlertController,
+    private activated_route:ActivatedRoute,
+    private router:Router
   ) { 
     this.storage.get('FreeLancer').then(res=>{
       this.freelancer_id = res.id
-      console.log(res);
+      console.log(res.id);
       
     })
   }
 
   ngOnInit() {
+
+    this.service_id=this.activated_route.snapshot.paramMap.get('id');
+    this.get_service()
     this.proposal_form = new FormGroup({
       payment_amount:new FormControl('', Validators.required),
       delivery_time:new FormControl('', Validators.required),
@@ -49,37 +58,46 @@ export class JopDetailPage implements OnInit {
     if (event.target.files.length > 0) {
       this.attachment_file = event.target.files[0]
       
-      // const formData = new FormData();
-      // formData.append('file', file)
-      // this.Cv = formData;
-      // console.log(this.Cv.get('file'));
+      ;
 
   }
   }
 
-  // -F 'Descripion=ddddddddd' \
-  // -F 'Attachment=' \
-  // -F 'ServiceId=1004' \
-  // -F 'Status=0' \
-  // -F 'PaymentTypeId=1' \
-  // -F 'DeleveryTime=3' \
-  // -F 'PaymentAmount=15' \
-  // -F 'FreelancerId=1011' \
-  // -F 'AttachmentFile=@cors.png;type=image/png'
+ 
   add_proposal(){
     const formdata = new FormData();
-    formdata.append('payment_amount',this.payment_amount);
-    formdata.append('delivery_time',this.delivery_time);
-    formdata.append('Descripion',this.description);
-    formdata.append('status',this.status);
-    formdata.append('FreelancerId',this.freelancer_id);
-    formdata.append('ServiceId',this.service_id);
-    formdata.append('PaymentTypeId',this.payment_type_id);
+    formdata.set('paymentAmount',this.payment_amount);
+    formdata.set('deleveryTime',this.delivery_time);
+    formdata.set('Descripion',this.description);
+    formdata.set('status',this.status);
+    formdata.set('ServiceId',this.service_id);
+    formdata.set('PaymentTypeId',this.payment_type_id);
+    formdata.set('FreelancerId',this.freelancer_id);
+
+    console.log(this.freelancer_id);
+    console.log(this.payment_amount);
+    console.log(this.delivery_time);
+    console.log(this.service_id);
+    console.log(this.payment_type_id);
+    console.log(this.status);
+    
     // formdata.append('AttachmentFile',this.attachment_file);
     
 
-    this.data_service.add_proposal(formdata).subscribe(res=>{
+    this.data_service.add_proposal(formdata).subscribe(async(res)=>{
       console.log(res);
+      this.storage.set('PROPOSALS', res)
+      let alert = await this.alert_ctrl.create({
+        header:'Proposal Sent',
+        message:'Successfull',
+        buttons:[
+          {text:'Jobs', handler:()=>{
+            this.router.navigate(['/jobs']);
+          
+          }},
+          {text:'Edit Proposal', role:'cancel'}
+        ]
+      })
       return
     },async err =>{
       console.log(err);
@@ -99,5 +117,22 @@ export class JopDetailPage implements OnInit {
 
   }
 
+  get_service(){
+    this.data_service.get_one_service(this.service_id).subscribe((res:any)=>{
+      if(res.paymentTypeId==1){
+        this.payment_type = 'Vodafone Cash'
+      }
+      if(res.paymentTypeId==2){
+        this.payment_type = 'Bank Account'
+      }
+      if(res.paymentTypeId==3){
+        this.payment_type = 'Cash PickUp'
+      }
+      this.service = res.data
+      this.service_skills = res.data.serviceSkills
+      console.log(this.service);
+    })
+  }
 
+ 
 }

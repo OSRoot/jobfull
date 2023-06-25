@@ -1,6 +1,18 @@
 <ion-header>
   <ion-toolbar style="color: #bebebe; font-weight: bold">
     <ion-title class="ion-text-center">Complete your Profile</ion-title>
+    <ion-buttons slot="end">
+      
+      <ion-button
+        style="color: aqua; border: 1px solid #5075d5;width: auto;"
+        routerLink="/myhome"
+        routerDirection="back"
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-label>Go back</ion-label>
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -94,6 +106,13 @@
           <ion-input [(ngModel)]="country" formControlName="country" type="text" placeholder="Country"></ion-input>
         </ion-item>
       </ion-col>
+
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">Region</ion-label>
+          <ion-input [(ngModel)]="region" formControlName="region" type="text" placeholder="Ex. Developer"></ion-input>
+        </ion-item>
+      </ion-col>
       
       <ion-col>
         <ion-item>
@@ -151,7 +170,7 @@
     </ion-row>
 
     <ion-col>
-      <ion-button color="success" expand="block" [disabled]="the_form.invalid">
+      <ion-button (click)="add_edu()" color="success" expand="block" [disabled]="the_form.invalid">
         <ion-icon name="save" ></ion-icon>
         <ion-label>Save</ion-label>
       </ion-button>

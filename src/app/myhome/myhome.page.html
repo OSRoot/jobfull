@@ -35,7 +35,7 @@
           width: 100px;
           height: 50px;
         "
-        routerLink="/myprofile"
+        (click)="go_myprofile()"
       >
       
         <ion-label style="font-size: 15px; color: #5075d5; padding-right: 5px"
@@ -159,16 +159,16 @@
         <div class="work">
           <h2>Recent Jobs</h2>
           <div>
-            <ion-card *ngFor="let work of work_list;">
-              <img src="{{work.image}}" alt="pic" />
-              <ion-card-title>{{work.title}}</ion-card-title>
-              <ion-card-content>{{work.desc}}</ion-card-content>
-              <ion-button routerLink="/jop-detail" color="medium">See More</ion-button>
+            <ion-card *ngFor="let service of services;">
+              <!-- <img src="{{work.image}}" alt="pic" /> -->
+              <ion-card-title>{{service.title}}</ion-card-title>
+              <ion-card-content>{{service.description}}</ion-card-content>
+              <ion-button [routerLink]="['/jop-detail', service.id]" color="medium">See More</ion-button>
             </ion-card>
           </div>
         </div>
 
-        <div class="activity">
+        <!-- <div class="activity">
           <h2>Recent Activities</h2>
 
           <div
@@ -185,7 +185,7 @@
             </div>
             <span>1 min ago</span>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

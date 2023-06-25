@@ -16,130 +16,41 @@
 </ion-header>
 
 <ion-content class="ion-text-center">
-  <h1 style="color: antiquewhite">No Jobs Offers</h1>
-  <div class="myhome-content">
-    <div class="sidemenu">
-      <div class="card">
-        <h2 style="color: #bebebe;">Popular Client</h2>
-        
-        <ul class="ion-text-left ion-padding" style="color: #5045d5;">
-          <li>Google</li>
-          <li>Facebook</li>
-          <li>Microsoft</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 style="color: #bebebe;">Popular Services</h2>
-        
-        <ul class="ion-text-left ion-padding" style="color: #5045d5;">
-          <li>Website Building</li>
-          <li>Nodejs Instructor</li>
-          <li>Helpers</li>
-        </ul>
-      </div>
-
-    </div>
-    <div *ngIf="no_proposals" class="main-content">
-      <ion-item  lines="none" style="--background: transparent">
-        <ion-label>Nothing to show yet</ion-label>
-        <ion-icon name="alert-outline"></ion-icon>
-      </ion-item>
-      <ion-item lines="none" style="--background: transparent">
-        <ion-button
-          fill="outline"
-          expand="block"
-          shape="round"
-          color="success"
-          routerLink="/myhome"
-          routerDirection="back"
-        >
-          <ion-label>Return back</ion-label>
-          <ion-icon name="home"></ion-icon>
-        </ion-button>
-      </ion-item>
-    </div>
+  
     
-    <div class="proposals">
-      <h3 style="color: #bebebe;">My Proposals</h3>
-    <ion-row>
-      <ion-col>
-        <ion-card style="--background: #292B3A;" class="ion-padding">
+
+<div style="display: flex; align-items: center;justify-content: center;">
+
+  <ion-row>
+    <ion-col *ngFor="let propos of my_proposals">
+        <ion-card  style="--background: #292B3A; " class="ion-padding">
           <ion-card-title style="color: #bebebe;">
-            Developper
+            {{service_title}}
           </ion-card-title >
           <ion-card-subtitle style="color: #bebebe;">
-            Payment amount: 15$
+            Payment Amount: {{propos.paymentAmount}} $
           </ion-card-subtitle>
-          <ion-card-content style="color: #bebebe;">
-            Description
-            Delivery Time in: 5 Days
+          <ion-card-content style="color: #bebebe;" >
+            {{propos.descripion}}
           </ion-card-content>
-          <ion-button  color="medium" shape="round" (click)="show_edit_proposal=1">
+          <ion-item>
+            <ion-label>
+              Delivery Time in: {{propos.deleveryTime}} Days
+            </ion-label>
+            <ion-icon name="alarm-outline"></ion-icon>
+          </ion-item>
+          <ion-button  color="medium" shape="round" [routerLink]="['/edit-proposal', propos.id]">
             <p style="color: #5045d5;">
               Edit Proposal
             </p>
           </ion-button>
         </ion-card>
       </ion-col>
+
+
+      
     </ion-row>
   </div>
-</div>
 
 
-<div *ngIf="show_edit_proposal" class="the-form" (click)="show_edit_proposal=0">
-
-    
-</div>
-
-<div class="form ion-text-center ion-padding" *ngIf="show_edit_proposal" >
-  <h2 style="color: #5075d5;">Submit Your Proposal</h2>
-
-  <form [formGroup]="proposal_form" action="">
-    <div class="edu">
-
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Payment Amount $:</ion-label>
-            <ion-input [(ngModel)]="payment_amount" formControlName="payment_amount" type="number"></ion-input>
-        </ion-item>
-      </ion-col>
-       
-      <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Delivery time (Days):</ion-label>
-          <ion-input [(ngModel)]="delivery_time" formControlName="delivery_time" type="number"></ion-input>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-      <ion-row>
-
-      <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Description:</ion-label>
-          <ion-input [(ngModel)]="description" formControlName="description" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-
-
-      <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Attach File (optional):</ion-label>
-          <ion-input (change)="ion_change_attach($event)" type="file"></ion-input>
-        </ion-item>
-      </ion-col>
-
-
-    </ion-row>
-
-    <ion-button (click)="update_proposal()" color="success" expand="block" style="width: 50%; margin: auto;" [disabled]="proposal_form.invalid">
-      Submit
-    </ion-button>
-    
-  </div>
-  </form>
-
-
-</div>
 </ion-content>

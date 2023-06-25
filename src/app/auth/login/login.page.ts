@@ -146,4 +146,9 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+
+
+  get_freelancer(){
+    
+  }
 }

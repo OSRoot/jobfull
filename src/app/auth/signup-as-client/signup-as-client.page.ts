@@ -13,7 +13,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SignupAsClientPage implements OnInit {
 
 
-  roleName: string = 'client'
+  roleName: string = 'Client'
   username!: string;
   fName!: string;
   lName!: string;

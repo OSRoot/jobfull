@@ -11,7 +11,7 @@ import {  Router } from '@angular/router';
   styleUrls: ['./stage01.page.scss'],
 })
 export class Stage01Page implements OnInit {
-
+  user_id!:number
   Overview!: any;
   Title!: any;
   Bio!: any;
