@@ -60,6 +60,7 @@ export class AddEduPage implements OnInit {
   ngOnInit() {
     
     // window.location.reload();
+    
     this.storage.get('FreeLancer').then(res=>{
       if (res){
         this.freelancerId = res.id

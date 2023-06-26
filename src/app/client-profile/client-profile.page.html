@@ -173,7 +173,7 @@
   <div class="form ion-text-center ion-padding" *ngIf="show_add_service" >
     <h2 style="color: #5075d5;">Add Service</h2>
   
-    <form  action="" style="margin-top: 30px;">
+    <form [formGroup]="service_form"  action="" style="margin-top: 30px;">
       <div class="edu">
   
         
@@ -181,14 +181,14 @@
           <ion-col>
             <ion-item style="--background: #6d6d6d;" class="item">
               <ion-label position="stacked">Title</ion-label>
-              <ion-input  type="text"></ion-input>
+              <ion-input [(ngModel)]="service_title" formControlName="service_title"  type="text"></ion-input>
           </ion-item >
         </ion-col>
          
         <ion-col>
           <ion-item class="item" style="--background: #6d6d6d;">
             <ion-label position="stacked">Description</ion-label>
-            <ion-input  type="text"></ion-input>
+            <ion-input [(ngModel)]="service_description" formControlName="service_description"  type="text"></ion-input>
           </ion-item>
         </ion-col>
         </ion-row>
@@ -197,14 +197,14 @@
           <ion-col>
             <ion-item style="--background: #6d6d6d;" class="item">
               <ion-label position="stacked">Payment Amount (USD)</ion-label>
-              <ion-input  type="number"></ion-input>
+              <ion-input [(ngModel)]="service_payment_amount" formControlName="service_payment_amount" type="number"></ion-input>
           </ion-item >
         </ion-col>
          
         <ion-col>
           <ion-item class="item" style="--background: #6d6d6d;">
             <ion-label position="stacked">Location</ion-label>
-            <ion-input  type="text"></ion-input>
+            <ion-input  [(ngModel)]="service_location" formControlName="service_location" type="text"></ion-input>
           </ion-item>
         </ion-col>
         </ion-row>
@@ -213,14 +213,14 @@
           <ion-col>
             <ion-item style="--background: #6d6d6d;" class="item">
               <ion-label position="stacked">Post Date</ion-label>
-              <ion-input  type="date"></ion-input>
+              <ion-input [(ngModel)]="service_posted_time" formControlName="service_posted_time"  type="date"></ion-input>
           </ion-item >
         </ion-col>
          
         <ion-col>
           <ion-item class="item" style="--background: #6d6d6d;">
             <ion-label position="stacked">Level</ion-label>
-            <ion-input  type="text"></ion-input>
+            <ion-input [(ngModel)]="service_level" formControlName="level"  type="text"></ion-input>
           </ion-item>
         </ion-col>
         </ion-row>
@@ -231,20 +231,31 @@
         <ion-col>
           <ion-item style="--background: #6d6d6d;" class="item">
             <ion-label position="stacked">Payment Type:</ion-label>
-            <ion-input  type="text"></ion-input>
+            <ion-input [(ngModel)]="service_payment_type" formControlName="service_payment_type" type="text"></ion-input>
           </ion-item>
         </ion-col>
         
         <ion-col>
           <ion-item style="--background: #6d6d6d;" class="item">
+            <ion-label position="stacked">Estimated time : (DAYS)</ion-label>
+            <ion-input [(ngModel)]="service_required_days"  formControlName="service_required_days" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item style="--background: #6d6d6d;" class="item">
             <ion-label position="stacked">Service Skill</ion-label>
-            <ion-input  type="text"></ion-input>
+            <ion-input [(ngModel)]="service_skill_name"  formControlName="service_skill_name" type="text"></ion-input>
           </ion-item>
         </ion-col>
 
       </ion-row>
   
-      <ion-button (click)="add_service()" color="success" expand="block" style="width: 50%; margin: auto; margin-top: 50px;">
+      <ion-button (click)="add_service()" 
+      color="success" 
+      expand="block" 
+      style="width: 50%; margin: auto; margin-top: 50px;" 
+      [disabled]="service_form.invalid">
         Submit
       </ion-button>
     </div>

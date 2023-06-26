@@ -97,7 +97,8 @@ export class JopDetailPage implements OnInit {
           }},
           {text:'Edit Proposal', role:'cancel'}
         ]
-      })
+      });
+      await alert.present()
       return
     },async err =>{
       console.log(err);
